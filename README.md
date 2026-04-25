@@ -78,6 +78,7 @@ The contact section **prioritizes mobile phone contact** over email:
 - Pricing display (currently inquiry-based)
 - Blog / journal section ("From the Workshop")
 - Owner profile photo and bio section
+- Contact Form
 
 ## 🔜 Recommended Next Steps
 1. **Update phone number** — Replace `(555) 123-4567` and `tel:+15551234567` with the owner's real number
