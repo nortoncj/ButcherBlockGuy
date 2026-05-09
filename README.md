@@ -1,9 +1,9 @@
-# Block & Grain — Heirloom Woodcraft Website
+# Butcher Block Guy — Custom Woodcraft Website
 
 ## Project Overview
-A premium, editorial-style static website for a handcrafted butcher block & cutting board artisan brand. Built around the **Heirloom Contrast** design system — emphasizing asymmetry, tonal layering, and physical weight over generic web templates.
+A premium, editorial-style static website for a handcrafted wood artisan brand. Built around the **Amish Processing System** design system — emphasizing asymmetry, wood types ( Acacia, hevea, chevron ), specializing in counter tops and tables, style has tonal layering, and physical weight over generic web templates.
 
-## Design System — Heirloom Contrast
+## Design System — Amish Processing
 | Token | Value | Usage |
 |---|---|---|
 | `primary` | `#2a0002` | Hero bg, footer, CTAs |

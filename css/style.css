@@ -1946,6 +1946,450 @@ a.footer-contact-item:hover { color: var(--on-primary); }
 }
 
 /* ====================================================
+   WOOD SPECIES SECTION
+   Append this to the bottom of your style.css
+   (above the RESPONSIVE breakpoints block)
+   ==================================================== */
+
+/* ====================================================
+   SPECIES — GRAIN HEADER (dark, full-bleed)
+   ==================================================== */
+
+.species-section {
+  /* No padding here — the grain header handles its own spacing */
+}
+
+.species-grain-header {
+  background: radial-gradient(ellipse at 20% 60%, var(--primary) 0%, var(--primary-container) 100%);
+  padding: var(--section-pad) var(--gutter);
+  overflow: hidden;
+  position: relative;
+}
+
+/* subtle grain texture overlay on the dark header */
+.species-grain-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      92deg,
+      rgba(255,255,255,0.012) 0px,
+      rgba(255,255,255,0.012) 1px,
+      transparent 1px,
+      transparent 60px
+    );
+  pointer-events: none;
+}
+
+.species-header-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.species-eyebrow {
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1rem;
+}
+
+.species-headline {
+  color: var(--on-primary);
+  margin-bottom: 1.5rem;
+}
+
+.species-header-sub {
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 46ch;
+  margin-bottom: 2rem;
+}
+
+.species-header-cta {
+  /* inherits btn-primary, no overrides needed */
+}
+
+/* ── Header image column ── */
+.species-header-image-col {
+  display: flex;
+  justify-content: flex-end;
+  /* intentional overlap: image bleeds slightly past the section bottom edge */
+  margin-bottom: -4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.species-header-img-slot {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 1rem 1rem 0 0;
+  overflow: visible;
+}
+
+/* ★ Placeholder shown until image is added */
+.species-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 2rem;
+  /* ghost border per design system */
+  outline: 1.5px solid rgba(218, 193, 191, 0.15);
+}
+
+.species-img-placeholder .label-sm {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+}
+
+/* Actual image — replaces the placeholder */
+.species-header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  display: block;
+}
+
+.species-header-img-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background: rgba(42, 0, 2, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.species-header-img-badge i {
+  color: var(--outline-variant);
+  opacity: 0.7;
+}
+
+/* ====================================================
+   SPECIES — CARDS GRID
+   ==================================================== */
+
+.species-grid-wrap {
+  background: var(--surface-container-low);
+  padding: calc(var(--section-pad) + 2rem) var(--gutter) var(--section-pad);
+}
+
+.species-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+/* ── Base Wood Card ── */
+.wood-card {
+  background: var(--surface-container-lowest);
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* ghost border — felt not seen */
+  outline: 1.5px solid rgba(218, 193, 191, 0.15);
+  transition: transform 0.3s var(--ease-out-expo),
+              box-shadow 0.3s var(--ease-out-expo);
+}
+
+.wood-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(28, 28, 24, 0.07);
+}
+
+/* Tonal alternate card — one step up the surface stack */
+.wood-card--tonal {
+  background: var(--surface-container);
+}
+
+/* Wide card spans both columns */
+.wood-card--wide {
+  grid-column: span 2;
+  flex-direction: row;
+}
+
+.wood-card--wide .wood-card-image-slot {
+  width: 45%;
+  flex-shrink: 0;
+  aspect-ratio: unset;
+  min-height: 280px;
+}
+
+.wood-card--wide .wood-card-body {
+  padding: 2.5rem 2.5rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── Card Image Slot ── */
+.wood-card-image-slot {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-container-high);
+}
+
+.wood-card-image-slot--wide {
+  aspect-ratio: unset;
+}
+
+/* Actual image when added */
+.wood-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.wood-card:hover .wood-card-img {
+  transform: scale(1.04);
+}
+
+/* Placeholder until image is added */
+.wood-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: var(--outline);
+  font-size: 2rem;
+  opacity: 0.45;
+  min-height: 200px;
+}
+
+.wood-img-placeholder .label-sm {
+  font-size: 0.6rem;
+  opacity: 0.7;
+  color: var(--on-surface-variant);
+}
+
+/* Number tag — top-right of image */
+.wood-card-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(42, 0, 2, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.2rem;
+  letter-spacing: 0.12em;
+}
+
+/* ── Card Body ── */
+.wood-card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.wood-card-name {
+  color: var(--on-background);
+  line-height: 1.15;
+}
+
+.wood-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* ── Wood Specs ── */
+.wood-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  /* tonal separator — no line, just background shift */
+  background: linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 0px
+  );
+  border-top: none;
+}
+
+/* Janka hardness bar row */
+.wood-spec-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.spec-label {
+  color: var(--outline);
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.spec-value {
+  color: var(--on-surface-variant);
+  margin-left: auto;
+  text-align: right;
+}
+
+/* Inline rows (grain, best-for) */
+.wood-spec-row--inline {
+  justify-content: space-between;
+}
+
+.wood-spec-row--inline .spec-label {
+  min-width: unset;
+}
+
+/* Bar track */
+.spec-bar-track {
+  flex: 1;
+  height: 3px;
+  background: var(--surface-container-high);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.spec-bar-fill {
+  height: 100%;
+  width: var(--bar-fill, 50%);
+  background: radial-gradient(ellipse at left, var(--primary) 0%, var(--primary-container) 100%);
+  border-radius: 99px;
+  transition: width 0.8s var(--ease-out-expo);
+}
+
+/* Wide card specs layout (horizontal on large screens) */
+.wood-specs--wide {
+  flex-direction: column;
+}
+
+/* ====================================================
+   SPECIES — PULL QUOTE + CTA STRIP
+   ==================================================== */
+
+.species-cta-strip {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  background: var(--surface-container);
+  border-radius: 1rem;
+  padding: 3rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  /* tonal depth — no borders */
+  outline: 1.5px solid rgba(218, 193, 191, 0.12);
+}
+
+.species-pull-quote {
+  color: var(--on-background);
+  max-width: 50ch;
+  font-style: normal;
+  line-height: 1.3;
+}
+
+.species-strip-btn {
+  flex-shrink: 0;
+}
+
+/* ====================================================
+   SPECIES — RESPONSIVE: TABLET (max 1024px)
+   ==================================================== */
+
+@media (max-width: 1024px) {
+  .species-header-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .species-header-image-col {
+    justify-content: center;
+    margin-bottom: -3rem;
+  }
+
+  .species-header-img-slot {
+    max-width: 400px;
+  }
+
+  .wood-card--wide {
+    flex-direction: column;
+    grid-column: span 2;
+  }
+
+  .wood-card--wide .wood-card-image-slot {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    min-height: unset;
+  }
+
+  .wood-card--wide .wood-card-body {
+    padding: 2rem;
+  }
+
+  .species-cta-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* ====================================================
+   SPECIES — RESPONSIVE: MOBILE (max 768px)
+   ==================================================== */
+
+@media (max-width: 768px) {
+  .species-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wood-card--wide {
+    grid-column: span 1;
+  }
+
+  .wood-card--wide .wood-card-image-slot {
+    aspect-ratio: 16 / 9;
+  }
+
+  .species-grid-wrap {
+    padding-top: var(--section-pad);
+  }
+
+  .species-header-image-col {
+    display: none; /* hide on mobile — header stands alone */
+  }
+}
+
+/* ====================================================
    RESPONSIVE — SMALL MOBILE (max 480px)
    ==================================================== */
 
