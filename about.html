@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Troy — Butcher Block Guy</title>
+    <meta
+      name="description"
+      content="Four decades in the shop. Zero patience for shortcuts. Meet the guy behind the boards."
+    />
+    <link
+      rel="icon"
+      href="./assets/images/logo/11-removebg-preview.png"
+      type="image/png"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,600&family=Manrope:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* About Page Styles */
+
+      /* About Hero */
+      .about-hero {
+        background: linear-gradient(135deg, #2a0002 0%, #4a0e0e 100%);
+        color: #ffffff;
+        padding: 100px 32px 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(252, 249, 242, 0.02) 0px,
+          transparent 1px,
+          transparent 2px,
+          rgba(252, 249, 242, 0.02) 3px
+        );
+        pointer-events: none;
+        opacity: 0.4;
+      }
+
+      .about-hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about-hero-text h1 {
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        line-height: 1.1;
+        margin-bottom: 32px;
+        font-weight: 600;
+      }
+
+      .about-hero-text h1 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .about-hero-intro {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        color: rgba(252, 249, 242, 0.85);
+      }
+
+      .about-hero-stat-group {
+        display: grid;
+        gap: 16px;
+      }
+
+      .about-hero-stat {
+        background: rgba(252, 249, 242, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(252, 249, 242, 0.1);
+        border-radius: 8px;
+        padding: 24px;
+      }
+
+      .about-hero-stat-num {
+        font-family: "Newsreader", serif;
+        font-size: 3rem;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 8px;
+        color: #fcf9f2;
+      }
+
+      .about-hero-stat-label {
+        font-family: "Work Sans", sans-serif;
+        font-size: 0.8125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(252, 249, 242, 0.7);
+      }
+
+      /* Story Section */
+      .story-section {
+        background: #fcf9f2;
+        padding: 120px 32px;
+      }
+
+      .story-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .story-content h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 48px;
+        color: #2a0002;
+        line-height: 1.2;
+      }
+
+      .story-content h2 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .story-text {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #1c1c18;
+      }
+
+      .story-text p {
+        margin-bottom: 32px;
+      }
+
+      .story-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .story-text strong {
+        color: #2a0002;
+        font-weight: 600;
+      }
+
+      .story-text em {
+        font-style: italic;
+        color: #877270;
+      }
+
+      .story-callout {
+        background: #ebe8e1;
+        padding: 40px;
+        border-radius: 8px;
+        margin: 48px 0;
+        border-left: 4px solid #2a0002;
+      }
+
+      .story-callout p {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        color: #2a0002;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      /* Philosophy Cards */
+      .philosophy-section {
+        background: #f6f3ec;
+        padding: 120px 32px;
+      }
+
+      .philosophy-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .philosophy-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .philosophy-header h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 24px;
+        color: #2a0002;
+        line-height: 1.2;
+      }
+
+      .philosophy-header h2 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .philosophy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .philosophy-card {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 48px;
+      }
+
+      .philosophy-card h3 {
+        font-family: "Newsreader", serif;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #2a0002;
+        margin-bottom: 16px;
+      }
+
+      .philosophy-card-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #1c1c18;
+      }
+
+      /* Personal Section */
+      .personal-section {
+        background: #4a0e0e;
+        color: #ffffff;
+        padding: 120px 32px;
+      }
+
+      .personal-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .personal-content h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 48px;
+        line-height: 1.2;
+      }
+
+      .personal-content h2 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .personal-list {
+        display: grid;
+        gap: 32px;
+      }
+
+      .personal-item {
+        background: rgba(252, 249, 242, 0.06);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(252, 249, 242, 0.1);
+        border-radius: 8px;
+        padding: 32px;
+      }
+
+      .personal-item h3 {
+        font-family: "Work Sans", sans-serif;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(252, 249, 242, 0.6);
+        margin-bottom: 12px;
+      }
+
+      .personal-item p {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: rgba(252, 249, 242, 0.9);
+        margin: 0;
+      }
+
+      /* Final Section */
+      .about-final {
+        background: #fcf9f2;
+        padding: 120px 32px;
+        text-align: center;
+      }
+
+      .about-final-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .about-final h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 32px;
+        color: #2a0002;
+        line-height: 1.2;
+      }
+
+      .about-final h2 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .about-final p {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        color: #1c1c18;
+        margin-bottom: 48px;
+      }
+
+      .about-final-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Work Sans", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #ffffff;
+        background: #2a0002;
+        padding: 18px 40px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .about-final-cta:hover {
+        background: #4a0e0e;
+        transform: translateY(-2px);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .about-hero-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .philosophy-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-hero {
+          padding: 80px 24px 60px;
+        }
+
+        .story-section {
+          padding: 80px 24px;
+        }
+
+        .philosophy-section {
+          padding: 80px 24px;
+        }
+
+        .philosophy-card {
+          padding: 32px;
+        }
+
+        .personal-section {
+          padding: 80px 24px;
+        }
+
+        .about-final {
+          padding: 80px 24px;
+        }
+
+        .story-callout {
+          padding: 32px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- About Hero -->
+      <section class="about-hero">
+        <div class="about-hero-content">
+          <div class="about-hero-grid">
+            <div class="about-hero-text">
+              <p
+                class="label-md"
+                style="
+                  color: rgba(252, 249, 242, 0.6);
+                  margin-bottom: 24px;
+                  text-transform: uppercase;
+                  letter-spacing: 0.15em;
+                "
+              >
+                About Troy
+              </p>
+              <h1>
+                Four Decades<br />
+                in the Shop.<br />
+                <em>Zero Patience for Shortcuts.</em>
+              </h1>
+              <p class="about-hero-intro">
+                I'm Troy. I've been building butcher blocks, countertops, and
+                custom wood pieces since before "artisan" was a marketing term.
+                I don't do social media trends. I don't do IKEA-level quality
+                with luxury pricing. I just build stuff that lasts.
+              </p>
+            </div>
+            <div class="about-hero-stat-group">
+              <div class="about-hero-stat">
+                <span class="about-hero-stat-num">40+</span>
+                <span class="about-hero-stat-label">Years in the Trade</span>
+              </div>
+              <div class="about-hero-stat">
+                <span class="about-hero-stat-num">1</span>
+                <span class="about-hero-stat-label">Guy Who Gives a Damn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Story -->
+      <section class="story-section">
+        <div class="story-content">
+          <h2>
+            How I Got Here<br />
+            <em>(The Real Story).</em>
+          </h2>
+
+          <div class="story-text">
+            <p>
+              I didn't grow up wanting to be a woodworker. I grew up in a house
+              where if something broke, you fixed it yourself—or you lived
+              without it. My old man had a table saw in the garage that was
+              older than I was, and by the time I was 12, I knew how to use it
+              without losing a finger. That was the bar.
+            </p>
+
+            <p>
+              After high school, I did the construction thing for a while.
+              Framing, trim work, cabinetry installs—whatever paid. I was good
+              at it, but I hated working on other people's timelines with other
+              people's cheap materials. So I started taking side jobs. Cutting
+              boards at first. Then coffee tables. Then someone asked if I could
+              do a butcher block island, and I said <strong>"sure"</strong> even
+              though I'd never done one that big before.
+            </p>
+
+            <div class="story-callout">
+              <p>
+                "You learn more from one custom commission than you do from a
+                hundred production runs. Every piece of wood has an attitude,
+                and you either figure out how to work with it—or you waste a
+                $300 slab."
+              </p>
+            </div>
+
+            <p>
+              That was 40 years ago. I've been doing this full-time ever since.
+              No employees. No partnerships. Just me, the shop, and a backlog of
+              projects that keeps me busy six weeks out at any given time. I
+              could scale up, hire people, run ads, do the whole growth thing.
+              But then I'd spend half my day managing instead of building, and
+              honestly? I'd rather be in the shop.
+            </p>
+
+            <p>
+              People ask why I don't automate more of the process.
+              <strong
+                >Because automation is for making the same thing over and
+                over.</strong
+              >
+              I don't make the same thing twice. Your countertop isn't anyone
+              else's countertop. Your island isn't a catalog item. Every piece
+              is dimensioned for your space, finished for your use case, and
+              built to actually survive the next 50 years—not just look good in
+              an Instagram story.
+            </p>
+
+            <p>
+              I'm not precious about this stuff. It's wood. It's functional.
+              It's meant to get used. But I do care that it's done right the
+              first time, because
+              <em>I don't do warranty repairs on garbage I didn't build.</em> If
+              it leaves my shop, it's built to last. If it's not, I don't ship
+              it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Philosophy -->
+      <section class="philosophy-section">
+        <div class="philosophy-content">
+          <div class="philosophy-header">
+            <h2>
+              What You Should Know<br />
+              <em>Before You Call.</em>
+            </h2>
+          </div>
+
+          <div class="philosophy-grid">
+            <div class="philosophy-card">
+              <h3>I Don't Do Rush Jobs</h3>
+              <p class="philosophy-card-text">
+                If you need something "by next week," I'm not your guy. Good
+                work takes time. I've got a queue, and the people ahead of you
+                didn't cut in line, so neither do you. Rush orders cost 25% more
+                and they still take at least two weeks minimum. If that's a
+                problem, there are plenty of shops that'll crank something out
+                fast—just don't call me when it warps in six months.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <h3>No Design-By-Pinterest</h3>
+              <p class="philosophy-card-text">
+                I get it—you saw something cool online and you want it for your
+                kitchen. That's fine. But I'm not reverse-engineering some photo
+                with zero measurements and three different wood species that
+                don't actually play nice together. If you want something
+                specific, bring me dimensions, wood preferences, and a realistic
+                budget. Otherwise, let me design it based on what'll actually
+                work in your space.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <h3>I'm Honest About Costs</h3>
+              <p class="philosophy-card-text">
+                Hardwood isn't cheap. Labor isn't cheap. If you're shopping on
+                price alone, you're gonna have a bad time—either with me or with
+                whoever undercuts me and delivers garbage. I charge what the
+                work is worth. No hidden fees, no surprise markups. But also no
+                haggling. The quote is the quote.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <h3>I Stand Behind My Work</h3>
+              <p class="philosophy-card-text">
+                If something's wrong with a piece I built—joint failure, finish
+                defect, dimensional error—I'll fix it or replace it. No
+                questions asked. But if you ignore the care instructions, leave
+                the board sitting in water for three days, or use it as a
+                cutting board when I told you it's oil-finished decorative,
+                that's on you. Wood isn't indestructible, and I'm not a miracle
+                worker.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personal Stuff -->
+      <section class="personal-section">
+        <div class="personal-content">
+          <h2>
+            The Stuff That<br />
+            <em>Isn't About Wood.</em>
+          </h2>
+
+          <div class="personal-list">
+            <div class="personal-item">
+              <h3>Where I'm Located</h3>
+              <p>
+                Brandon, Florida. Been here 30 years. The shop's a standalone
+                building behind the house—climate-controlled, dust collection
+                system, full setup. I ship nationwide, but if you're local and
+                want to pick up in person, that works too. Just don't show up
+                unannounced. I'm probably covered in sawdust and not in the mood
+                for surprise visits.
+              </p>
+            </div>
+
+            <div class="personal-item">
+              <h3>What I Do When I'm Not Building</h3>
+              <p>
+                Honestly? Not much. I fish sometimes. I've got a boat I take out
+                when the weather's decent and the project queue isn't insane. My
+                wife says I need hobbies that don't involve power tools, but she
+                married a guy who spends 60 hours a week in a workshop, so I
+                don't know what she expected.
+              </p>
+            </div>
+
+            <div class="personal-item">
+              <h3>Why People Keep Coming Back</h3>
+              <p>
+                Because I don't bullshit them. If a project's a bad idea, I'll
+                tell you. If your budget won't get you what you want, I'll tell
+                you that too. And when I say something will be done in six
+                weeks, it's done in six weeks—not eight, not "we're still
+                sourcing materials," not "we'll get back to you." I do what I
+                say I'm gonna do, and apparently that's rare enough now that
+                people appreciate it.
+              </p>
+            </div>
+
+            <div class="personal-item">
+              <h3>The Workshop Playlist</h3>
+              <p>
+                Classic rock, mostly. Zeppelin, Stones, some Skynyrd when I'm in
+                a mood. Occasionally my wife sneaks in and changes it to
+                country, and I'll work for two hours before I realize. I'm not
+                picky—as long as the table saw's louder than the music, I'm
+                good.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="about-final">
+        <div class="about-final-content">
+          <h2>
+            That's the Whole Story.<br />
+            <em>Now Let's Talk About Yours.</em>
+          </h2>
+          <p>
+            If you read this far and you're not turned off by the way I run
+            things, we'll probably get along fine. Call me. Tell me what you're
+            building. Let's see if it makes sense.
+          </p>
+          <a href="tel:+15551234567" class="about-final-cta">
+            <i class="fas fa-phone"></i>
+            Call Troy — (555) 123-4567
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

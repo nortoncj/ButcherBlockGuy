@@ -1,0 +1,670 @@
+<style>
+      /* Contact Page Styles */
+
+      /* Contact Hero */
+      .contact-hero {
+        background: linear-gradient(135deg, #2a0002 0%, #4a0e0e 100%);
+        color: #ffffff;
+        padding: 120px 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(252, 249, 242, 0.02) 0px,
+          transparent 1px,
+          transparent 2px,
+          rgba(252, 249, 242, 0.02) 3px
+        );
+        pointer-events: none;
+        opacity: 0.4;
+      }
+
+      .contact-hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .contact-hero h1 {
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        line-height: 1.1;
+        margin-bottom: 32px;
+        font-weight: 600;
+      }
+
+      .contact-hero h1 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .contact-hero-intro {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        color: rgba(252, 249, 242, 0.85);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Contact Methods Section */
+      .contact-methods {
+        background: #fcf9f2;
+        padding: 120px 32px;
+      }
+
+      .contact-methods-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-methods-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .contact-methods-header h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 24px;
+        color: #2a0002;
+        line-height: 1.2;
+      }
+
+      .contact-methods-header h2 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .contact-methods-header p {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: #1c1c18;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        margin-bottom: 80px;
+      }
+
+      .contact-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 48px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(42, 0, 2, 0.08);
+      }
+
+      .contact-card-icon {
+        width: 72px;
+        height: 72px;
+        background: #ebe8e1;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .contact-card-icon i {
+        font-size: 2rem;
+        color: #2a0002;
+      }
+
+      .contact-card h3 {
+        font-family: "Newsreader", serif;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #2a0002;
+        margin-bottom: 16px;
+      }
+
+      .contact-card-desc {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #1c1c18;
+        margin-bottom: 32px;
+      }
+
+      .contact-card-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Work Sans", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #2a0002;
+        text-decoration: none;
+        padding: 16px 32px;
+        background: #f6f3ec;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card-action:hover {
+        background: #ebe8e1;
+        transform: translateX(4px);
+      }
+
+      .contact-card-action i {
+        font-size: 1rem;
+      }
+
+      .contact-card-meta {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(135, 114, 112, 0.15);
+      }
+
+      .contact-card-meta-item {
+        font-size: 0.875rem;
+        color: #877270;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .contact-card-meta-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .contact-card-meta-item i {
+        font-size: 0.75rem;
+        color: #2a0002;
+      }
+
+      /* Calendly Widget Section */
+      .calendly-section {
+        background: #f6f3ec;
+        padding: 120px 32px;
+      }
+
+      .calendly-content {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .calendly-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+
+      .calendly-header h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 24px;
+        color: #2a0002;
+        line-height: 1.2;
+      }
+
+      .calendly-header h2 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .calendly-header p {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: #1c1c18;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .calendly-widget-placeholder {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 80px 48px;
+        text-align: center;
+        border: 2px dashed rgba(135, 114, 112, 0.3);
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .calendly-placeholder-icon {
+        width: 80px;
+        height: 80px;
+        background: #f6f3ec;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .calendly-placeholder-icon i {
+        font-size: 2rem;
+        color: #2a0002;
+      }
+
+      .calendly-placeholder-text {
+        font-family: "Work Sans", sans-serif;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #877270;
+        margin-bottom: 8px;
+      }
+
+      .calendly-placeholder-label {
+        font-family: "Newsreader", serif;
+        font-size: 1.5rem;
+        color: #2a0002;
+        font-style: italic;
+      }
+
+      .calendly-placeholder-note {
+        margin-top: 32px;
+        padding: 20px 32px;
+        background: #f6f3ec;
+        border-radius: 8px;
+        max-width: 500px;
+      }
+
+      .calendly-placeholder-note p {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: #1c1c18;
+        margin: 0;
+      }
+
+      .calendly-placeholder-note code {
+        font-family: "Courier New", monospace;
+        font-size: 0.875rem;
+        background: rgba(42, 0, 2, 0.08);
+        padding: 2px 8px;
+        border-radius: 4px;
+        color: #2a0002;
+      }
+
+      /* Location & Hours */
+      .contact-info-section {
+        background: #fcf9f2;
+        padding: 120px 32px;
+      }
+
+      .contact-info-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+      }
+
+      .contact-info-block h3 {
+        font-family: "Newsreader", serif;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #2a0002;
+        margin-bottom: 32px;
+      }
+
+      .contact-info-item {
+        margin-bottom: 24px;
+      }
+
+      .contact-info-label {
+        font-family: "Work Sans", sans-serif;
+        font-size: 0.8125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #877270;
+        margin-bottom: 8px;
+      }
+
+      .contact-info-value {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: #1c1c18;
+      }
+
+      .contact-info-value a {
+        color: #2a0002;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .contact-info-value a:hover {
+        opacity: 0.7;
+      }
+
+      .workshop-note {
+        background: #ebe8e1;
+        padding: 32px;
+        border-radius: 8px;
+        margin-top: 32px;
+      }
+
+      .workshop-note p {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: #1c1c18;
+        margin: 0;
+      }
+
+      .workshop-note strong {
+        color: #2a0002;
+      }
+
+      /* Final CTA */
+      .contact-cta {
+        background: linear-gradient(135deg, #2a0002 0%, #4a0e0e 100%);
+        color: #ffffff;
+        padding: 80px 32px;
+        text-align: center;
+      }
+
+      .contact-cta-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .contact-cta h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+
+      .contact-cta h2 em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .contact-cta p {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: rgba(252, 249, 242, 0.85);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-hero {
+          padding: 80px 24px;
+        }
+
+        .contact-methods {
+          padding: 80px 24px;
+        }
+
+        .contact-card {
+          padding: 32px;
+        }
+
+        .calendly-section {
+          padding: 80px 24px;
+        }
+
+        .calendly-widget-placeholder {
+          padding: 48px 24px;
+          min-height: 400px;
+        }
+
+        .contact-info-section {
+          padding: 80px 24px;
+        }
+
+        .contact-cta {
+          padding: 60px 24px;
+        }
+      }
+    </style>
+<main>
+      <!-- Contact Hero -->
+      <section class="contact-hero">
+        <div class="contact-hero-content">
+          <p
+            class="label-md"
+            style="
+              color: rgba(252, 249, 242, 0.6);
+              margin-bottom: 24px;
+              text-transform: uppercase;
+              letter-spacing: 0.15em;
+            "
+          >
+            Get in Touch
+          </p>
+          <h1>
+            Every Commission<br />
+            Starts with a<br />
+            <em>Conversation.</em>
+          </h1>
+          <p class="contact-hero-intro">
+            No quote forms. No automated responses. Just a direct line to the
+            workshop. Tell me what you're building, and I'll tell you if I can
+            make it happen—and what it'll take to do it right.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Methods -->
+      <section class="contact-methods">
+        <div class="contact-methods-content">
+          <div class="contact-methods-header">
+            <h2>
+              Three Ways to<br />
+              <em>Reach Me.</em>
+            </h2>
+            <p>
+              Pick the method that works for you. Phone is fastest for complex
+              projects. Text is great for quick questions. Calendar booking is
+              for detailed consultations.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Phone Card -->
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h3>Call Direct</h3>
+              <p class="contact-card-desc">
+                For projects where you already know the dimensions, wood
+                species, and timeline. I'll walk you through options, pricing,
+                and lead time. No voicemail runaround—if I don't pick up, I'll
+                call you back same day.
+              </p>
+              <a href="tel:+13215433132" class="contact-card-action">
+                <i class="fas fa-phone"></i>
+                (321) 543-3132
+              </a>
+              <div class="contact-card-meta">
+                <div class="contact-card-meta-item">
+                  <i class="fas fa-clock"></i>
+                  <span>Available Mon–Fri, 9am–6pm EST</span>
+                </div>
+                <div class="contact-card-meta-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Same-day callback guaranteed</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text Card -->
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fas fa-comment-dots"></i>
+              </div>
+              <h3>Text Me</h3>
+              <p class="contact-card-desc">
+                Best for quick questions, sending photos of inspiration pieces,
+                or following up on an existing project. I check texts throughout
+                the day—expect a reply within a few hours, sometimes faster.
+              </p>
+              <a href="sms:+13215433132" class="contact-card-action">
+                <i class="fas fa-sms"></i>
+                Text (321) 543-3132
+              </a>
+              <div class="contact-card-meta">
+                <div class="contact-card-meta-item">
+                  <i class="fas fa-clock"></i>
+                  <span>Replies within 2-4 hours, 7 days/week</span>
+                </div>
+                <div class="contact-card-meta-item">
+                  <i class="fas fa-image"></i>
+                  <span>Photo attachments welcome</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calendly Widget Section -->
+      <section class="calendly-section">
+        <div class="calendly-content">
+          <div class="calendly-header">
+            <h2>
+              Schedule a<br />
+              <em>Consultation.</em>
+            </h2>
+            <p>
+              Block out 30 minutes for a detailed conversation. We'll go through
+              your project step-by-step—measurements, wood options, finish
+              details, installation requirements, and pricing.
+            </p>
+          </div>
+
+          <!-- Calendly Widget Placeholder -->
+          <div class="calendly-widget-placeholder">
+            <div class="calendly-placeholder-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <p class="calendly-placeholder-text">Calendly Widget Area</p>
+            <p class="calendly-placeholder-label">
+              Drop your widget embed here
+            </p>
+
+            <div class="calendly-placeholder-note">
+              <p>
+                <strong>Note:</strong> Replace this placeholder with your
+                Calendly inline widget. Use the <code>data-url</code> attribute
+                to embed directly or wrap it in a
+                <code>&lt;div class="calendly-inline-widget"&gt;</code>
+                container.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location & Workshop Hours -->
+      <section class="contact-info-section">
+        <div class="contact-info-content">
+          <div class="contact-info-grid">
+            <!-- Location -->
+            <div class="contact-info-block">
+              <h3>Workshop Location</h3>
+
+              <div class="contact-info-item">
+                <p class="contact-info-label">Address</p>
+                <p class="contact-info-value">
+                  Brandon, Florida<br />
+                  <em style="font-size: 0.9375rem; color: #877270"
+                    >Ships nationwide — Local pickup available</em
+                  >
+                </p>
+              </div>
+
+              <div class="contact-info-item">
+                <p class="contact-info-label">Email</p>
+                <p class="contact-info-value">
+                  <a href="mailto:troy@butcherblockguy.com"
+                    >troy@butcherblockguy.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="workshop-note">
+                <p>
+                  <strong>Workshop visits by appointment only.</strong> I'm
+                  usually elbow-deep in sawdust during business hours. Call
+                  ahead if you'd like to see work-in-progress pieces or discuss
+                  your project in person.
+                </p>
+              </div>
+            </div>
+
+            <!-- Hours & Availability -->
+            <div class="contact-info-block">
+              <h3>Hours & Lead Time</h3>
+
+              <div class="contact-info-item">
+                <p class="contact-info-label">Workshop Hours</p>
+                <p class="contact-info-value">
+                  Monday – Friday: 8am – 6pm<br />
+                  Saturday: 9am – 2pm<br />
+                  Sunday: Closed
+                </p>
+              </div>
+
+              <div class="contact-info-item">
+                <p class="contact-info-label">Current Lead Time</p>
+                <p class="contact-info-value">
+                  4-6 weeks for standard pieces<br />
+                  8-10 weeks for full countertop runs<br />
+                  <em style="font-size: 0.9375rem; color: #877270"
+                    >Updated weekly based on project queue</em
+                  >
+                </p>
+              </div>
+
+              <div class="contact-info-item">
+                <p class="contact-info-label">Rush Orders</p>
+                <p class="contact-info-value">
+                  Available on a case-by-case basis with a 25% expedite fee.
+                  Call to discuss timeline requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="contact-cta">
+        <div class="contact-cta-content">
+          <h2>
+            Don't Overthink It—<br />
+            <em>Just Call.</em>
+          </h2>
+          <p>
+            Most people spend weeks researching woodworkers and comparing
+            quotes. Save yourself the time. One phone call will tell you if this
+            is the right fit. If it's not, I'll tell you that too.
+          </p>
+        </div>
+      </section>
+    </main>
