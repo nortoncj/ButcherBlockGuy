@@ -1,11 +1,14 @@
 <?php
-// Theme setup and asset enqueueing for Butcher Block Guy
+// Theme setup and asset enqueueing for Butcher Block Group
 
 	add_action( 'wp_enqueue_scripts', 'bg_enqueue_services_styles' );
-
 function bg_enqueue_services_styles() {
 
-    if ( ! is_page('services') ) return;
+    $is_services_page = is_page_template( 'page-services.php' ) || is_page( 'services' ) || is_page( 'service' );
+
+    if ( ! $is_services_page ) {
+        return;
+    }
 
     $css_file = get_stylesheet_directory() . '/assets/css/services-page.css';
     $css_uri  = get_stylesheet_directory_uri() . '/assets/css/services-page.css';
@@ -19,15 +22,88 @@ function bg_enqueue_services_styles() {
         return;
     }
 
-    wp_enqueue_style(
-        'bg-services-page',
-        $css_uri,
-        array(),
-        filemtime( $css_file )
-    );
+    wp_enqueue_style( 'bg-services-page', $css_uri, array( 'bbg-style' ), filemtime( $css_file ) );
+
+    wp_enqueue_style( 'bg-glightbox', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', array(), '3.2.0' );
+    wp_enqueue_script( 'bg-glightbox', 'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js', array(), '3.2.0', true );
+    wp_add_inline_script( 'bg-glightbox', "
+        document.addEventListener('DOMContentLoaded', function () {
+            const lightbox = GLightbox({
+                selector: '.bg-glightbox',
+                openEffect: 'fade',
+                closeEffect: 'fade',
+                touchNavigation: true,
+                keyboardNavigation: true,
+                closeOnOutsideClick: true,
+            });
+
+            const tabs = document.querySelectorAll('.bg-portfolio-tab');
+            const items = document.querySelectorAll('.bg-portfolio-item');
+
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function () {
+                    const filter = tab.dataset.filter;
+
+                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    tab.classList.add('active');
+
+                    items.forEach(function(item) {
+                        const match = filter === 'all' || item.dataset.product === filter;
+                        item.style.display = match ? '' : 'none';
+                    });
+                });
+            });
+        });
+    " );
 }
 
-add_action( 'wp_enqueue_scripts', 'bg_enqueue_services_styles' );
+add_action( 'wp_enqueue_scripts', 'bg_enqueue_reviews_content_styles' );
+function bg_enqueue_reviews_content_styles() {
+
+    if ( ! is_page_template( 'reviews-content.php' ) ) return;
+
+    $css_file = get_stylesheet_directory() . '/assets/css/reviews-content.css';
+    $css_uri  = get_stylesheet_directory_uri() . '/assets/css/reviews-content.css';
+
+    if ( ! file_exists( $css_file ) ) {
+        add_action( 'admin_notices', function() use ( $css_file ) {
+            echo '<div class="notice notice-warning"><p>';
+            echo '<strong>Block &amp; Grain:</strong> Reviews stylesheet not found at <code>' . esc_html( $css_file ) . '</code>.';
+            echo '</p></div>';
+        });
+        return;
+    }
+
+    wp_enqueue_style( 'bg-reviews-content', $css_uri, array(), filemtime( $css_file ) );
+}
+
+add_action( 'wp_enqueue_scripts', 'bg_enqueue_front_page_styles' );
+function bg_enqueue_front_page_styles() {
+
+    if ( ! is_front_page() ) return;
+
+    $css_file = get_stylesheet_directory() . '/css/front-page.css';
+    $css_uri  = get_stylesheet_directory_uri() . '/css/front-page.css';
+
+    if ( ! file_exists( $css_file ) ) {
+        $fallback_css_file = get_stylesheet_directory() . '/assets/css/front-page.css';
+        $fallback_css_uri  = get_stylesheet_directory_uri() . '/assets/css/front-page.css';
+
+        if ( file_exists( $fallback_css_file ) ) {
+            $css_file = $fallback_css_file;
+            $css_uri  = $fallback_css_uri;
+        } else {
+            add_action( 'admin_notices', function() use ( $css_file ) {
+                echo '<div class="notice notice-warning"><p>';
+                echo '<strong>Block &amp; Grain:</strong> Front page stylesheet not found at <code>' . esc_html( $css_file ) . '</code>.';
+                echo '</p></div>';
+            });
+            return;
+        }
+    }
+
+    wp_enqueue_style( 'bg-front-page', $css_uri, array(), filemtime( $css_file ) );
+}
 
 
 add_action( 'after_setup_theme', function() {

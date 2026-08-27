@@ -375,3 +375,33 @@ function bg_get_product_label( $product_type ) {
     );
     return $labels[ $product_type ] ?? 'Portfolio';
 }
+
+/**
+ * Recent portfolio items, ordered strictly by the date the piece was
+ * added (not the manual bg_order field). Used for a "recent builds"
+ * strip on the homepage.
+ */
+function bg_get_recent_gallery_items( $count = 3 ) {
+    $posts = get_posts( array(
+        'post_type'      => 'bg_gallery',
+        'post_status'    => 'publish',
+        'posts_per_page' => $count,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    ) );
+
+    foreach ( $posts as &$post ) {
+        $thumb_id = get_post_thumbnail_id( $post->ID );
+
+        $post->bg_wood_type = get_post_meta( $post->ID, '_bg_wood_type', true ) ?: 'acacia';
+        $post->bg_img_url   = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'large' ) : '';
+
+        $wood_labels = array(
+            'acacia' => 'Acacia', 'hevea' => 'Hevea', 'walnut' => 'Walnut',
+            'maple'  => 'Maple',  'chevron' => 'Chevron', 'other' => 'Mixed',
+        );
+        $post->bg_wood_label = $wood_labels[ $post->bg_wood_type ] ?? 'Custom';
+    }
+
+    return $posts;
+}

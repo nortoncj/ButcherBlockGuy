@@ -1,66 +1,61 @@
-    <footer class="site-footer">
-      <div class="footer-layout">
-        <div class="footer-brand">
-          <a href="<?php echo esc_url( home_url( '/' ) ); ?>#hero" class="footer-logo">
-            <span class="logo-mark">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/11-removebg-preview.png" alt="<?php bloginfo( 'name' ); ?> logo" class="logo-mark-img" />
-            </span>
-            <span class="logo-text"><?php bloginfo( 'name' ); ?></span>
-          </a>
-          <p class="footer-tagline body-text">
-            <em>Handcrafted heirloom woodwork,<br />built for the serious kitchen.</em>
-          </p>
-          <a href="tel:+13215433132" class="btn-call-sm">
-            <i class="fas fa-phone-alt"></i> (321) 543-3132
-          </a>
-        </div>
+<footer class="bg-footer" id="contact">
+  <div class="footer-cta">
+    <p class="footer-cta-eyebrow">Ready when you are</p>
+    <h2>Let's talk about your project.</h2>
+    <div class="footer-cta-actions">
+      <!-- <a class="btn btn-invert" href="mailto:hello@blockandgrain.com">Get a quote</a> -->
+      <a class="btn btn-ghost" href="tel:+13215433132">Call the shop</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">Butcher Block Group</p>
+      <p class="footer-tag">Custom woodwork, built to last generations.</p>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram"><svg class="icon" style="width:16px;height:16px"><use href="#i-at"/></svg></a>
+      <a href="#" aria-label="Email"><svg class="icon" style="width:16px;height:16px"><use href="#i-mail"/></svg></a>
+      <a href="#" aria-label="Phone"><svg class="icon" style="width:16px;height:16px"><use href="#i-phone"/></svg></a>
+    </div>
+  </div>
+  <p class="footer-bottom">© <?php echo esc_html( date( 'Y' ) ); ?> Butcher Block Group. All rights reserved.</p>
+</footer>
 
-        <div class="footer-links-group">
-          <p class="footer-group-label label-sm">Navigate</p>
-          <ul class="footer-links">
-            <li><a href="/about" class="footer-link">About</a></li>
-            <li><a href="/services" class="footer-link">Services</a></li>
-            <li><a href="#process" class="footer-link">Process</a></li>
-            <li><a href="#testimonials" class="footer-link">Stories</a></li>
-            <li><a href="/contact" class="footer-link">Contact</a></li>
-          </ul>
-        </div>
+<script>
+  (function () {
+    // Gallery filtering
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var galleryItems = document.querySelectorAll('.gallery-item');
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        var filter = btn.dataset.filter;
+        galleryItems.forEach(function (item) {
+          var match = filter === 'all' || item.dataset.category === filter;
+          item.classList.toggle('is-hidden', !match);
+        });
+      });
+    });
 
-        <div class="footer-links-group">
-          <p class="footer-group-label label-sm">Wood Species</p>
-          <ul class="footer-links">
-            <li><span class="footer-link">Acacia</span></li>
-            <li><span class="footer-link">Shortleaf Acacia</span></li>
-            <li><span class="footer-link">Heavea</span></li>
-            <li><span class="footer-link">Chevron</span></li>
-          </ul>
-        </div>
+    // Scroll reveal
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  })();
+</script>
 
-        <div class="footer-contact-col">
-          <p class="footer-group-label label-sm">Contact</p>
-          <div class="footer-contact-list">
-            <a href="tel:+13215433132" class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>(321) 543-3132</span>
-            </a>
-            <a href="sms:++13215433132" class="footer-contact-item">
-              <i class="fas fa-comment-sms"></i>
-              <span>Text us anytime</span>
-            </a>
-            <div class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Brandon, FL · Ships Nationwide</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-legal label-sm">© <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. Handcrafted with intention.</p>
-        <p class="footer-legal label-sm">Designed in the spirit of the workshop.</p>
-      </div>
-    </footer>
-
-    <?php wp_footer(); ?>
-  </body>
+<?php wp_footer(); ?>
+</body>
 </html>
