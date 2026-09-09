@@ -367,7 +367,7 @@
                   letter-spacing: 0.15em;
                 "
               >
-                About Troy
+                <?php the_title(); ?>
               </p>
               <h1>
                 Almost a decade<br />
@@ -398,69 +398,12 @@
       <!-- The Story -->
       <section class="story-section">
         <div class="story-content">
-          <h2>
-            How I Got Here<br />
-            <em>(The Real Story).</em>
-          </h2>
+          
 
-          <div class="story-text">
-            <p>
-              I didn't grow up wanting to be a woodworker. I grew up in a house
-              where if something broke, you fixed it yourself—or you lived
-              without it. My old man had a table saw in the garage that was
-              older than I was, and by the time I was 12, I knew how to use it
-              without losing a finger. That was the bar.
-            </p>
+            <?php the_content(); ?>
 
-            <p>
-              After high school, I tried different things for a while.
-              Framing, trim work, cabinetry installs—whatever paid. I was good
-              at it, but I hated working on other people's timelines with other
-              people's cheap materials. So I started taking side jobs. Cutting
-              boards at first. Then coffee tables. Then someone asked if I could
-              do a butcher block like mine, and I said <strong>"sure"</strong>.
-            </p>
-
-            <div class="story-callout">
-              <p>
-                "You learn more from one custom commission than you do from a
-                hundred production runs. Every piece of wood has an attitude,
-                and you either figure out how to work with it—or you waste a
-                $300 slab."
-              </p>
-            </div>
-
-            <p>
-              That was 10 years ago. I've been doing this full-time ever since.
-              No employees. No partnerships. Just me, the shop, and a backlog of
-              projects that keeps me busy six weeks out at any given time. I
-              could scale up, hire people, run ads, do the whole growth thing.
-              But then I'd spend half my day managing instead of building, and
-              honestly? I'd rather be in the shop.
-            </p>
-
-            <p>
-              People ask why I don't automate more of the process.
-              <strong
-                >Because automation is for making the same thing over and
-                over.</strong
-              >
-              I don't make the same thing twice. Your countertop isn't anyone
-              else's countertop. Your island isn't a catalog item. Every piece
-              is dimensioned for your space, finished for your use case, and
-              built to actually survive the next 50 years—not just look good in
-              an Instagram story.
-            </p>
-
-            <p>
-              I'm not precious about this stuff. It's wood. It's functional.
-              It's meant to get used. But I do care that it's done right the
-              first time, because
-              <em>I don't do warranty repairs on garbage I didn't build.</em> If
-              it leaves my shop, it's built to last. If it's not, I don't ship
-              it.
-            </p>
-          </div>
+           
+          
         </div>
       </section>
 

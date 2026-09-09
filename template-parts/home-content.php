@@ -1,9 +1,9 @@
 <header class="hero" id="top">
   <div class="hero-inner">
     <div>
-      <p class="hero-eyebrow">Butcher Block Group</p>
-      <h1>Heirloom furniture, built by hand.</h1>
-      <p>Custom tables, furniture, countertops, and more. Every piece cut, shaped, and finished in one shop by one guy who really likes wood grain.</p>
+      <p class="hero-eyebrow"><?php the_title() ?></p>
+      <?php the_content(); ?>
+      
       <div class="hero-actions">
         <button class="btn btn-primary" onclick="document.getElementById('gallery').scrollIntoView()">See the work</button>
         <a class="btn btn-ghost" href="#contact">Get a quote</a>
