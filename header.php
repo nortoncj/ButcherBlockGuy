@@ -1,682 +1,124 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Butcher Block Group — Quality Custom Woodwork</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@500;600&family=Manrope:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --primary: #2a0002;
-        --primary-container: #4a0e0e;
-        --surface: #fcf9f2;
-        --surface-low: #f6f3ec;
-        --surface-high: #ebe8e1;
-        --surface-lowest: #ffffff;
-        --on-surface: #1c1c18;
-        --on-primary: #ffffff;
-        --outline: #877270;
-        --outline-variant: #dac1bf;
+<?php
+/**
+ * header.php — shared site header
+ *
+ * Replaces the hand-copied header that was duplicated across every static
+ * page. Because this runs through WordPress, relative-path juggling
+ * (../ and ../../) disappears entirely.
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php wp_head(); ?>
+</head>
+<body <?php body_class( 'bg-espresso antialiased selection:bg-gold selection:text-white' ); ?>>
+<?php wp_body_open(); ?>
 
-        --font-display: "Newsreader", serif;
-        --font-label: "Work Sans", sans-serif;
-        --font-body: "Manrope", sans-serif;
-      }
+<a class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:bg-gold-light focus:text-stone-900 focus:px-4 focus:py-2 focus:rounded" href="#main">
+	Skip to content
+</a>
 
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        background: var(--surface);
-        color: var(--on-surface);
-        font-family: var(--font-body);
-        -webkit-font-smoothing: antialiased;
-      }
-      img {
-        display: block;
-        max-width: 100%;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-      }
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-[#140c06]/95 backdrop-blur border-b border-[#3a2415]/80 text-ivory px-4 lg:px-12 py-3.5 transition-all">
+	<div class="max-w-7xl mx-auto flex items-center justify-between">
 
-      /* ---------- Icon sprite ---------- */
-      .icon {
-        width: 20px;
-        height: 20px;
-        stroke: currentColor;
-        fill: none;
-        stroke-width: 1.6;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
+		<a class="flex items-center gap-3.5 group" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<img
+				alt="<?php echo esc_attr( bbg_opt( 'brand_name', 'Butcher Block Group' ) ); ?> emblem"
+				class="w-12 h-12 object-contain rounded-full ring-1 ring-gold/40 transition group-hover:ring-gold"
+				src="<?php echo esc_url( wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0] ); ?>"
+			>
+			<div class="flex flex-col">
+				<span class="font-headline text-lg sm:text-xl font-bold tracking-wider text-stone-100 uppercase leading-none">
+					<?php echo esc_html( bbg_opt( 'brand_line_1', 'Butcher Block' ) ); ?>
+				</span>
+				<span class="font-headline text-xs sm:text-[13px] tracking-[0.25em] text-gold font-medium uppercase mt-0.5">
+					<?php echo esc_html( bbg_opt( 'brand_line_2', 'Group' ) ); ?>
+				</span>
+			</div>
+		</a>
 
-      /* ---------- Nav ---------- */
-      .site-nav {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(42, 0, 2, 0.86);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        padding: 14px 24px;
-      }
-      .nav-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        gap: clamp(20px, 4vw, 44px);
-      }
-      .nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-        color: #e8d9d9;
-        opacity: 0.82;
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 10px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        transition:
-          opacity 0.2s ease,
-          color 0.2s ease;
-      }
-      .nav-item:hover,
-      .nav-item.is-active {
-        opacity: 1;
-        color: #fff;
-      }
+		<?php
+		$menu_items = array();
+		$locations  = get_nav_menu_locations();
+		if ( ! empty( $locations['primary'] ) ) {
+			$menu_items = wp_get_nav_menu_items( $locations['primary'] );
+		}
+		?>
 
-      /* ---------- Hero ---------- */
-      .hero {
-        position: relative;
-        background: var(--primary-container);
-        padding: clamp(48px, 8vw, 88px) 24px clamp(96px, 14vw, 140px);
-        overflow: hidden;
-      }
-      .hero-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 32px;
-        align-items: center;
-      }
-      .hero-eyebrow {
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #d9b8b8;
-        margin: 0 0 14px;
-      }
-      .hero h1 {
-        font-family: var(--font-display);
-        font-weight: 500;
-        font-style: italic;
-        color: var(--surface);
-        font-size: clamp(2.1rem, 4.6vw, 3.4rem);
-        line-height: 1.08;
-        margin: 0 0 18px;
-      }
-      .hero p {
-        font-size: 15px;
-        line-height: 1.65;
-        color: #e6d3d3;
-        max-width: 38ch;
-        margin: 0 0 28px;
-      }
-      .hero-actions {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-      .btn {
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 12px;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        padding: 13px 26px;
-        border-radius: 0.375rem;
-        border: none;
-        cursor: pointer;
-        transition:
-          transform 0.15s ease,
-          background 0.2s ease;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-      }
-      .btn-primary {
-        background: var(--primary);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: #1c0001;
-      }
-      .btn-ghost {
-        background: rgba(255, 255, 255, 0.12);
-        color: #fff;
-      }
-      .btn-ghost:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-      .btn-invert {
-        background: var(--surface);
-        color: var(--primary);
-      }
-      .btn-invert:hover {
-        background: #ffffff;
-      }
-      .btn-lg {
-        padding: 16px 36px;
-        font-size: 13px;
-      }
+		<!-- Desktop nav -->
+		<nav class="hidden lg:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider text-stone-300" aria-label="Primary">
+			<?php if ( $menu_items ) : ?>
+				<?php foreach ( $menu_items as $item ) :
+					if ( (int) $item->menu_item_parent !== 0 ) continue; // top level only
+					$icon = bbg_nav_icon( bbg_menu_item_slug( $item ) );
+				?>
+					<a class="hover:text-gold flex items-center gap-1.5 transition" href="<?php echo esc_url( $item->url ); ?>">
+						<?php echo $icon; // safe: generated from a fixed internal map ?>
+						<?php echo esc_html( $item->title ); ?>
+					</a>
+				<?php endforeach; ?>
+			<?php else : ?>
+				<span class="text-stone-500 normal-case tracking-normal">
+					Assign a menu to the <strong>Primary</strong> location under Appearance &rarr; Menus.
+				</span>
+			<?php endif; ?>
+		</nav>
 
-      .hero-figure {
-        position: relative;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 40px 60px -20px rgba(28, 28, 24, 0.5);
-        aspect-ratio: 4/5;
-      }
-      .hero-figure img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+		<!-- Desktop phone + quote -->
+		<div class="hidden lg:flex items-center gap-4">
+			<a class="flex items-center gap-2 text-stone-200 hover:text-gold text-sm font-semibold tracking-wide transition" href="tel:<?php echo esc_attr( bbg_phone_digits() ); ?>">
+				<svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+				<span><?php echo esc_html( bbg_opt( 'phone', '(813) 555-0123' ) ); ?></span>
+			</a>
+			<a class="bg-gold-light hover:bg-gold-hover text-stone-900 font-bold px-4 py-2 text-xs uppercase tracking-wider rounded transition" href="<?php echo esc_url( bbg_opt( 'quote_url', home_url( '/contact/' ) ) ); ?>">
+				Get Quote
+			</a>
+		</div>
 
-      /* ---------- Section shell ---------- */
-      section {
-        padding: clamp(40px, 6vw, 64px) 24px;
-      }
-      .section-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-      .eyebrow {
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--outline);
-        margin: 0 0 12px;
-      }
+		<!-- Mobile toggle -->
+		<button aria-controls="bbg-mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-ivory p-2 -mr-2" id="bbg-mobile-menu-btn" type="button">
+			<svg class="w-6 h-6" id="bbg-icon-open" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			<svg class="w-6 h-6 hidden" id="bbg-icon-close" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+		</button>
+	</div>
 
-      /* ---------- Recent builds strip ---------- */
-      .strip {
-        background: var(--surface);
-        margin-top: -64px;
-        position: relative;
-        z-index: 5;
-      }
-      .strip-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-      }
-      .strip-card {
-        border-radius: 8px;
-        overflow: hidden;
-        aspect-ratio: 4/3;
-        box-shadow: 0 20px 34px -18px rgba(28, 28, 24, 0.28);
-      }
-      .strip-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      .strip-card:hover img {
-        transform: scale(1.05);
-      }
+	<!-- Mobile call buttons -->
+	<div class="lg:hidden flex items-center gap-2.5 px-0 pt-3.5">
+		<a class="flex-1 inline-flex items-center justify-center gap-2 bg-foundry hover:bg-[#4a2f1c] text-ivory font-headline font-bold text-xs uppercase tracking-wider px-4 py-3 rounded transition" href="tel:<?php echo esc_attr( bbg_phone_digits() ); ?>">
+			<svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+			Call Now
+		</a>
+		<a class="flex-1 inline-flex items-center justify-center bg-gold-light hover:bg-gold-hover text-stone-900 font-headline font-bold text-xs uppercase tracking-wider px-4 py-3 rounded transition" href="<?php echo esc_url( bbg_opt( 'quote_url', home_url( '/contact/' ) ) ); ?>">
+			Get Quote
+		</a>
+	</div>
 
-      /* ---------- Gallery ---------- */
-      .gallery {
-        background: var(--surface);
-      }
-      .gallery-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-bottom: 28px;
-      }
-      .gallery-head h2 {
-        font-family: var(--font-display);
-        font-weight: 500;
-        font-style: italic;
-        font-size: clamp(1.5rem, 3vw, 2.1rem);
-        margin: 0;
-        color: var(--primary);
-      }
-      .filters {
-        display: flex;
-        gap: 22px;
-        flex-wrap: wrap;
-      }
-      .filter-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0 0 5px;
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 12px;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--outline);
-        border-bottom: 2px solid transparent;
-        transition:
-          color 0.2s ease,
-          border-color 0.2s ease;
-      }
-      .filter-btn:hover {
-        color: var(--primary);
-      }
-      .filter-btn.is-active {
-        color: var(--primary);
-        border-color: var(--primary);
-      }
+	<!-- Mobile drawer -->
+	<div class="lg:hidden hidden border-t border-[#3a2415]/80 bg-[#140c06] -mx-4 mt-3.5" id="bbg-mobile-menu">
+		<nav class="max-w-7xl mx-auto flex flex-col px-4 py-2 text-sm font-semibold uppercase tracking-wider text-stone-300" aria-label="Mobile">
+			<?php if ( $menu_items ) : ?>
+				<?php
+				$top = array_filter( $menu_items, function ( $i ) { return (int) $i->menu_item_parent === 0; } );
+				$last = count( $top );
+				$n = 0;
+				foreach ( $top as $item ) :
+					$n++;
+					$icon = bbg_nav_icon( bbg_menu_item_slug( $item ) );
+					$border = ( $n < $last ) ? ' border-b border-[#3a2415]/60' : '';
+				?>
+					<a class="flex items-center gap-3 py-3.5<?php echo esc_attr( $border ); ?> hover:text-gold transition" href="<?php echo esc_url( $item->url ); ?>">
+						<span class="shrink-0"><?php echo $icon; ?></span>
+						<?php echo esc_html( $item->title ); ?>
+					</a>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</nav>
+	</div>
+</header>
+<!-- END: MainHeader -->
 
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
-      }
-      .gallery-item {
-        position: relative;
-        border-radius: 8px;
-        overflow: hidden;
-        aspect-ratio: 1;
-        background: var(--surface-high);
-      }
-      .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      .gallery-item:hover img {
-        transform: scale(1.06);
-      }
-      .gallery-item.is-hidden {
-        display: none;
-      }
-      .wood-badge {
-        position: absolute;
-        left: 10px;
-        bottom: 10px;
-        background: rgba(42, 0, 2, 0.82);
-        color: #fff;
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 10px;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        padding: 5px 10px;
-        border-radius: 4px;
-        opacity: 0;
-        transform: translateY(6px);
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-      .gallery-item:hover .wood-badge {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* ---------- Wood species ---------- */
-      .wood-section {
-        background: var(--surface-low);
-      }
-      .wood-section h2 {
-        font-family: var(--font-display);
-        font-weight: 500;
-        font-style: italic;
-        font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-        color: var(--primary);
-        margin: 0 0 22px;
-        max-width: 34ch;
-      }
-      .wood-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-      }
-      .wood-card {
-        background: var(--surface-lowest);
-        border-radius: 10px;
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .wood-card.is-wide {
-        grid-column: span 2;
-      }
-      .wood-photo {
-        border-radius: 6px;
-        overflow: hidden;
-        aspect-ratio: 5/3;
-      }
-      .wood-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .wood-name {
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 11px;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--primary);
-      }
-      .wood-note {
-        font-size: 12px;
-        color: var(--outline);
-        line-height: 1.5;
-        margin: 0;
-      }
-
-      /* ---------- Mid-page CTA band ---------- */
-      .cta-band {
-        background: var(--primary);
-        text-align: center;
-      }
-      .cta-band .section-inner {
-        max-width: 600px;
-      }
-      .cta-band-eyebrow {
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #d9b8b8;
-        margin: 0 0 12px;
-      }
-      .cta-band h2 {
-        font-family: var(--font-display);
-        font-weight: 500;
-        font-style: italic;
-        color: var(--surface);
-        font-size: clamp(1.6rem, 3.4vw, 2.3rem);
-        line-height: 1.15;
-        margin: 0 0 16px;
-      }
-      .cta-band p {
-        color: #e6d3d3;
-        font-size: 14px;
-        line-height: 1.65;
-        margin: 0 0 28px;
-      }
-
-      /* ---------- Footer ---------- */
-      footer {
-        background: var(--primary);
-        padding: 48px 24px 26px;
-      }
-      .footer-cta {
-        max-width: 640px;
-        margin: 0 auto 44px;
-        text-align: center;
-        background: var(--primary-container);
-        border-radius: 14px;
-        padding: 38px 28px;
-      }
-      .footer-cta-eyebrow {
-        font-family: var(--font-label);
-        font-weight: 600;
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #d9b8b8;
-        margin: 0 0 10px;
-      }
-      .footer-cta h2 {
-        font-family: var(--font-display);
-        font-weight: 500;
-        font-style: italic;
-        color: var(--surface);
-        font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-        margin: 0 0 24px;
-      }
-      .footer-cta-actions {
-        display: flex;
-        gap: 14px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .footer-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 24px;
-      }
-      .footer-brand {
-        font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 500;
-        font-size: 20px;
-        color: var(--surface);
-        margin: 0 0 6px;
-      }
-      .footer-tag {
-        font-size: 12px;
-        color: #c9a9a9;
-        max-width: 34ch;
-        margin: 0;
-      }
-      .footer-social {
-        display: flex;
-        gap: 16px;
-      }
-      .footer-social a {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.08);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #e8d9d9;
-        transition: background 0.2s ease;
-      }
-      .footer-social a:hover {
-        background: rgba(255, 255, 255, 0.18);
-      }
-      .footer-bottom {
-        max-width: 1100px;
-        margin: 26px auto 0;
-        padding-top: 18px;
-        font-family: var(--font-label);
-        font-size: 10px;
-        letter-spacing: 0.04em;
-        color: #7a5555;
-      }
-
-      /* ---------- Scroll reveal ---------- */
-      .reveal {
-        opacity: 0;
-        transform: translateY(18px);
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
-      }
-      .reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        .reveal {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
-        .strip-card img,
-        .gallery-item img {
-          transition: none;
-        }
-      }
-
-      /* ---------- Responsive ---------- */
-      @media (max-width: 820px) {
-        .hero-inner {
-          grid-template-columns: 1fr;
-        }
-        .hero-figure {
-          aspect-ratio: 16/9;
-        }
-        .strip-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 8px;
-        }
-        .gallery-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .wood-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .wood-card.is-wide {
-          grid-column: span 2;
-        }
-      }
-      @media (max-width: 560px) {
-        .site-nav {
-          padding: 12px 16px;
-        }
-        .nav-inner {
-          gap: 14px;
-          justify-content: flex-start;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: none;
-        }
-        .nav-inner::-webkit-scrollbar {
-          display: none;
-        }
-        .nav-item {
-          flex: 0 0 auto;
-        }
-        .nav-item .icon {
-          width: 17px;
-          height: 17px;
-        }
-        .nav-item span {
-          font-size: 8.5px;
-          letter-spacing: 0.04em;
-        }
-        .strip-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .gallery-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .wood-grid {
-          grid-template-columns: repeat(1, 1fr);
-        }
-        .wood-card.is-wide {
-          grid-column: span 1;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <svg class="visually-hidden" aria-hidden="true">
-      <symbol id="i-home" viewBox="0 0 24 24">
-        <path d="M3 11.5 12 4l9 7.5" />
-        <path d="M5.5 10v9a1 1 0 0 0 1 1H10v-6h4v6h3.5a1 1 0 0 0 1-1v-9" />
-      </symbol>
-      <symbol id="i-user" viewBox="0 0 24 24">
-        <circle cx="12" cy="8" r="3.5" />
-        <path d="M4.5 20c1.4-4 4-5.5 7.5-5.5S18.1 16 19.5 20" />
-      </symbol>
-      <symbol id="i-tool" viewBox="0 0 24 24">
-        <path
-          d="M14.7 6.3a4 4 0 0 0-5.6 5l-6 6 2.6 2.6 6-6a4 4 0 0 0 5-5.6l-2.5 2.5-2-2z"
-        />
-      </symbol>
-      <symbol id="i-image" viewBox="0 0 24 24">
-        <rect x="3.5" y="4.5" width="17" height="15" rx="2" />
-        <circle cx="9" cy="10" r="1.6" />
-        <path d="M20 16.5 15 11l-8.5 8.5" />
-      </symbol>
-      <symbol id="i-star" viewBox="0 0 24 24">
-        <path
-          d="M12 3.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"
-        />
-      </symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24">
-        <path
-          d="M6 3.5h3l1.4 4-2 1.6a12 12 0 0 0 5.5 5.5l1.6-2 4 1.4v3a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 4.5 5.1 1.5 1.5 0 0 1 6 3.5z"
-        />
-      </symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24">
-        <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
-        <path d="M4 6.5 12 13l8-6.5" />
-      </symbol>
-      <symbol id="i-at" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="4" />
-        <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-4 7.5" />
-      </symbol>
-    </svg>
-
-    <nav class="site-nav" aria-label="Primary">
-      <div class="nav-inner">
-        <a class="nav-item is-active" href="/#top"
-          ><svg class="icon"><use href="#i-home" /></svg><span>Home</span></a
-        >
-        <a class="nav-item" href="/about"
-          ><svg class="icon"><use href="#i-user" /></svg><span>About</span></a
-        >
-        <a class="nav-item" href="/services"
-          ><svg class="icon"><use href="#i-tool" /></svg
-          ><span>Services</span></a
-        >
-        <a class="nav-item" href="/gallery"
-          ><svg class="icon"><use href="#i-image" /></svg
-          ><span>Gallery</span></a
-        >
-        <!-- <a class="nav-item" href="/reviews"
-          ><svg class="icon"><use href="#i-star" /></svg><span>Reviews</span></a
-        > -->
-        <a class="nav-item" href="#contact"
-          ><svg class="icon"><use href="#i-phone" /></svg
-          ><span>Contact</span></a
-        >
-      </div>
-    </nav>
+<main id="main">

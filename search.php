@@ -1,8 +1,6 @@
 <?php
 /**
- * index.php — fallback listing.
- * WordPress requires this file; it also catches anything the more
- * specific templates below it in the hierarchy do not handle.
+ * search.php — search results.
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
@@ -10,9 +8,22 @@ get_header();
 
 <section class="bg-[#1c1108] border-b border-foundry px-4 lg:px-12 py-14 lg:py-16">
 	<div class="max-w-7xl mx-auto">
-		<p class="font-headline text-gold text-[11px] tracking-[0.25em] uppercase mb-3">Butcher Block Group</p>
-		<h1 class="font-headline font-bold text-ivory uppercase leading-[0.98] text-3xl sm:text-4xl lg:text-5xl">Latest from the shop</h1>
-		<span class="block h-0.5 w-16 bg-gold mt-6"></span>
+		<p class="font-headline text-gold text-[11px] tracking-[0.25em] uppercase mb-3">Search results</p>
+		<h1 class="font-headline font-bold text-ivory uppercase leading-[0.98] text-3xl sm:text-4xl">
+			&ldquo;<?php echo esc_html( get_search_query() ); ?>&rdquo;
+		</h1>
+		<p class="text-stone-400 text-sm mt-4">
+			<?php
+			global $wp_query;
+			printf(
+				esc_html( _n( '%s result', '%s results', (int) $wp_query->found_posts, 'butcher-block-group' ) ),
+				esc_html( number_format_i18n( (int) $wp_query->found_posts ) )
+			);
+			?>
+		</p>
+		<div class="mt-6 max-w-md [&_input[type=search]]:w-full [&_input[type=search]]:bg-[#140c06] [&_input[type=search]]:border [&_input[type=search]]:border-stone-700 [&_input[type=search]]:rounded [&_input[type=search]]:text-stone-200 [&_input[type=search]]:px-4 [&_input[type=search]]:py-3 [&_button]:hidden">
+			<?php get_search_form(); ?>
+		</div>
 	</div>
 </section>
 
@@ -22,7 +33,7 @@ get_header();
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 				get_template_part( 'template-parts/post-card' );
 			endwhile; else : ?>
-			<p class="col-span-full text-center text-stone-500 text-sm py-16">Nothing published yet.</p>
+			<p class="col-span-full text-center text-stone-500 text-sm py-16">No matches. Try a different word.</p>
 			<?php endif; ?>
 		</div>
 		<?php if ( have_posts() ) : ?>

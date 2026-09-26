@@ -10,7 +10,7 @@
  * Each "Gallery Item" post stores:
  *   - Post title          → image caption / piece name
  *   - Featured image      → the primary lightbox photo
- *   - _bg_product_type    → what it is (countertop | table | cutting-board | sink | shelving | custom)
+ *   - bg_product_type    → what it is (countertop | table | cutting-board | sink | shelving | custom)
  *   - _bg_wood_type       → what it's made from (acacia | hevea | walnut | maple | chevron | other)
  *   - _bg_size            → grid size hint: standard | tall | wide
  *   - _bg_order           → integer display order (lower = first)
@@ -84,7 +84,7 @@ function bg_gallery_add_meta_box() {
 function bg_gallery_meta_box_html( $post ) {
     wp_nonce_field( 'bg_gallery_save_meta', 'bg_gallery_nonce' );
 
-    $product_type = get_post_meta( $post->ID, '_bg_product_type', true ) ?: 'countertop';
+    $product_type = get_post_meta( $post->ID, 'bg_product_type', true ) ?: 'countertop';
     $wood_type    = get_post_meta( $post->ID, '_bg_wood_type',    true ) ?: 'acacia';
     $size         = get_post_meta( $post->ID, '_bg_size',         true ) ?: 'standard';
     $order        = get_post_meta( $post->ID, '_bg_order',        true ) ?: '0';
@@ -191,7 +191,7 @@ function bg_gallery_save_meta( $post_id ) {
     if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
     $fields = array(
-        'bg_product_type' => '_bg_product_type',
+        'bg_product_type' => 'bg_product_type',
         'bg_wood_type'    => '_bg_wood_type',
         'bg_size'         => '_bg_size',
         'bg_order'        => '_bg_order',
@@ -251,7 +251,7 @@ function bg_gallery_column_content( $col, $post_id ) {
                 'shelving'      => 'Shelving',
                 'custom'        => 'Custom',
             );
-            $val = get_post_meta( $post_id, '_bg_product_type', true ) ?: 'countertop';
+            $val = get_post_meta( $post_id, 'bg_product_type', true ) ?: 'countertop';
             echo esc_html( $map[ $val ] ?? $val );
             break;
 
@@ -307,7 +307,7 @@ function bg_get_portfolio_items( $product_type = 'all', $wood_type = 'all' ) {
     // Filter by product type
     if ( $product_type !== 'all' ) {
         $meta_query[] = array(
-            'key'     => '_bg_product_type',
+            'key'     => 'bg_product_type',
             'value'   => sanitize_key( $product_type ),
             'compare' => '=',
         );
@@ -337,7 +337,7 @@ function bg_get_portfolio_items( $product_type = 'all', $wood_type = 'all' ) {
     foreach ( $posts as &$post ) {
         $thumb_id = get_post_thumbnail_id( $post->ID );
 
-        $post->bg_product_type = get_post_meta( $post->ID, '_bg_product_type', true ) ?: 'countertop';
+        $post->bg_product_type = get_post_meta( $post->ID, 'bg_product_type', true ) ?: 'countertop';
         $post->bg_wood_type    = get_post_meta( $post->ID, '_bg_wood_type',    true ) ?: 'acacia';
         $post->bg_size         = get_post_meta( $post->ID, '_bg_size',         true ) ?: 'standard';
         $post->bg_order        = (int) ( get_post_meta( $post->ID, '_bg_order', true ) ?: 0 );

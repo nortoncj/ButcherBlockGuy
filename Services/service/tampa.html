@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 
+<!--
+  ============================================================
+  SERVICE × LOCATION TEMPLATE  —  /services/[service]/[city].html
+  Shown here filled in for COUNTERTOPS IN TAMPA, FL.
+
+  ~70% of this page must be genuinely unique per city, or Google
+  treats the set as thin duplicate content and it backfires.
+  UNIQUE per city:
+    1. H1 + hero paragraph
+    2. "Why [City]" heading + paragraph
+    3. The 6 neighborhood tiles
+    4. Major roads & landmarks list
+    5. The 4 recent-project cards (real local jobs + real wood species)
+    6. Closing banner headline
+  SHARED across every city (safe to repeat):
+    - header, footer, the 3 hero value props, the 3 trust items,
+      button styling and layout
+  ============================================================
+-->
+
 <html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About | Butcher Block Group</title>
+<title>Custom Wood Countertops in Tampa, FL | Butcher Block Group</title>
+<meta content="Handcrafted wood countertops for Tampa homes and businesses. Butcher block islands, bar tops and waterfall edges, built and installed across the Tampa Bay area." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -30,9 +51,10 @@
 <style data-purpose="base-styling">
     body { background-color: #1c1108; color: #16110b; font-family: 'Manrope', sans-serif; }
     .font-headline { font-family: 'Oswald', sans-serif; letter-spacing: 0.03em; }
-    .cat-card { position: relative; border-radius: 0.375rem; overflow: hidden; display: block; height: 9rem; }
-    .cat-card img { transition: transform .5s ease; }
-    .cat-card:hover img { transform: scale(1.07); }
+    .proj-card { border: 1px solid #2c2119; border-radius: 0.375rem; overflow: hidden; background: #140c06; display: block; }
+    .proj-card img { transition: transform .5s ease; }
+    .proj-card:hover img { transform: scale(1.06); }
+    .proj-card:hover { border-color: rgba(168,117,46,.6); }
     @keyframes bbg-pulse { 0% { transform: scale(.8); opacity: .5; } 70% { transform: scale(1.4); opacity: 0; } 100% { opacity: 0; } }
     .ring { animation: bbg-pulse 3.2s ease-out infinite; transform-origin: center; }
     .ring:nth-of-type(2) { animation-delay: 1.05s; }
@@ -74,7 +96,7 @@
         >
           <a
             class="hover:text-gold flex items-center gap-1.5 transition"
-            href="index.html#services"
+            href="../../index.html#services"
           >
             <svg
               class="w-4 h-4 text-gold stroke-current fill-none"
@@ -93,7 +115,7 @@
           </a>
           <a
             class="hover:text-gold flex items-center gap-1.5 transition"
-            href="index.html#gallery"
+            href="../../index.html#gallery"
           >
             <svg
               class="w-4 h-4 text-gold stroke-current fill-none"
@@ -108,7 +130,7 @@
           </a>
           <a
             class="hover:text-gold flex items-center gap-1.5 transition"
-            href="index.html#who-we-serve"
+            href="../../index.html#who-we-serve"
           >
             <svg
               class="w-4 h-4 text-gold stroke-current fill-none"
@@ -125,7 +147,7 @@
           </a>
           <a
             class="hover:text-gold flex items-center gap-1.5 transition"
-            href="index.html#pricing"
+            href="../../index.html#pricing"
           >
             <svg
               class="w-4 h-4 text-gold-light stroke-current fill-none"
@@ -142,7 +164,7 @@
           </a>
           <a
             class="hover:text-gold flex items-center gap-1.5 transition"
-            href="index.html#quote"
+            href="../../index.html#quote"
           >
             <svg
               class="w-4 h-4 text-gold stroke-current fill-none"
@@ -173,7 +195,7 @@
           </a>
           <a
             class="bg-gold-light hover:bg-gold-hover text-stone-900 font-bold px-4 py-2 text-xs uppercase tracking-wider rounded transition"
-            href="index.html#quote"
+            href="../../index.html#quote"
           >
             Get Quote
           </a>
@@ -231,7 +253,7 @@
         </a>
         <a
           class="flex-1 inline-flex items-center justify-center bg-gold-light hover:bg-gold-hover text-stone-900 font-headline font-bold text-xs uppercase tracking-wider px-4 py-3 rounded transition"
-          href="index.html#quote"
+          href="../../index.html#quote"
         >
           Get Quote
         </a>
@@ -246,7 +268,7 @@
         >
           <a
             class="flex items-center gap-3 py-3.5 border-b border-[#3a2415]/60 hover:text-gold transition"
-            href="index.html#services"
+            href="../../index.html#services"
           >
             <svg
               class="w-5 h-5 text-gold stroke-current fill-none shrink-0"
@@ -263,7 +285,7 @@
           </a>
           <a
             class="flex items-center gap-3 py-3.5 border-b border-[#3a2415]/60 hover:text-gold transition"
-            href="index.html#gallery"
+            href="../../index.html#gallery"
           >
             <svg
               class="w-5 h-5 text-gold stroke-current fill-none shrink-0"
@@ -278,7 +300,7 @@
           </a>
           <a
             class="flex items-center gap-3 py-3.5 border-b border-[#3a2415]/60 hover:text-gold transition"
-            href="index.html#who-we-serve"
+            href="../../index.html#who-we-serve"
           >
             <svg
               class="w-5 h-5 text-gold stroke-current fill-none shrink-0"
@@ -295,7 +317,7 @@
           </a>
           <a
             class="flex items-center gap-3 py-3.5 border-b border-[#3a2415]/60 hover:text-gold transition"
-            href="index.html#pricing"
+            href="../../index.html#pricing"
           >
             <svg
               class="w-5 h-5 text-gold stroke-current fill-none shrink-0"
@@ -312,7 +334,7 @@
           </a>
           <a
             class="flex items-center gap-3 py-3.5 hover:text-gold transition"
-            href="index.html#quote"
+            href="../../index.html#quote"
           >
             <svg
               class="w-5 h-5 text-gold stroke-current fill-none shrink-0"
@@ -358,252 +380,283 @@
 
     <!-- END: MainHeader -->
 
-<!-- BEGIN: AboutHero -->
-<section class="relative h-[52vh] min-h-[380px] w-full overflow-hidden">
-<img alt="Butcher block island with integrated sink" class="absolute inset-0 w-full h-full object-cover" src="https://images.pexels.com/photos/7601073/pexels-photo-7601073.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"/>
-<div class="absolute inset-0 bg-gradient-to-r from-espresso via-espresso/85 to-espresso/20"></div>
+<!-- BEGIN: LocationHero -->
+<section class="relative min-h-[460px] w-full overflow-hidden">
+<img alt="Wood countertop kitchen island in a Tampa home" class="absolute inset-0 w-full h-full object-cover" src="https://images.pexels.com/photos/7601073/pexels-photo-7601073.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"/>
+<div class="absolute inset-0 bg-gradient-to-r from-espresso via-espresso/88 to-espresso/25"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent"></div>
-<div class="relative z-10 h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-center">
+
+<div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-6 pb-12">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 font-headline text-[11px] uppercase tracking-wider mb-8">
+<a class="text-gold hover:text-gold-light transition" href="../../services.html">Services</a>
+<svg class="w-3 h-3 text-stone-600 stroke-current fill-none" stroke-width="2.5" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<a class="text-gold hover:text-gold-light transition" href="../countertops.html">Countertops</a>
+<svg class="w-3 h-3 text-stone-600 stroke-current fill-none" stroke-width="2.5" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-stone-300">Tampa, FL</span>
+</nav>
+
 <p class="font-headline text-gold text-xs sm:text-sm tracking-[0.25em] uppercase mb-3">
-      Built by hand. Meant to last.
+      Local experts. Lasting quality.
     </p>
-<h1 class="font-headline font-bold text-ivory uppercase leading-[0.95] text-4xl sm:text-5xl lg:text-6xl mb-5 max-w-xl">
-      About Butcher Block Group
+<h1 class="font-headline font-bold text-ivory uppercase leading-[0.95] text-4xl sm:text-5xl lg:text-6xl mb-5">
+      Countertops<br/>in Tampa, FL
     </h1>
-<p class="text-stone-300 text-sm sm:text-base max-w-sm leading-relaxed mb-6">
-      Custom woodwork. Real people. A local business with a passion for craftsmanship.
+<p class="text-stone-300 text-sm sm:text-base max-w-md leading-relaxed mb-8">
+      Custom wood countertops built for Tampa homes and businesses. From downtown high-rises to suburban neighborhoods, we bring craftsmanship, reliability, and local expertise to your project.
     </p>
-<span class="block h-0.5 w-16 bg-gold"></span>
+
+<div class="flex flex-wrap gap-8">
+<div class="flex items-center gap-3">
+<svg class="w-9 h-9 text-gold stroke-current fill-none shrink-0" stroke-width="1.2" viewbox="0 0 24 24"><path d="M12 2.5l8.5 4.9v9.2L12 21.5 3.5 16.6V7.4L12 2.5z" stroke-linejoin="round"></path><circle cx="12" cy="12" r="3"></circle></svg>
+<div>
+<p class="font-headline text-gold text-[10px] font-semibold uppercase tracking-wider">Local experience</p>
+<p class="text-stone-400 text-xs">We know Tampa.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<svg class="w-9 h-9 text-gold stroke-current fill-none shrink-0" stroke-width="1.2" viewbox="0 0 24 24"><path d="M12 2.5l8.5 4.9v9.2L12 21.5 3.5 16.6V7.4L12 2.5z" stroke-linejoin="round"></path><path d="M12 7l4.5 2.6v5.2L12 17.4 7.5 14.8V9.6L12 7z" stroke-linejoin="round"></path></svg>
+<div>
+<p class="font-headline text-gold text-[10px] font-semibold uppercase tracking-wider">Premium materials</p>
+<p class="text-stone-400 text-xs">Built to last.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<svg class="w-9 h-9 text-gold stroke-current fill-none shrink-0" stroke-width="1.2" viewbox="0 0 24 24"><rect height="13" rx="2" width="16" x="4" y="6"></rect><path d="M8 6V4M16 6V4M4 11h16" stroke-linecap="round"></path><path d="M9 15l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div>
+<p class="font-headline text-gold text-[10px] font-semibold uppercase tracking-wider">Custom fit</p>
+<p class="text-stone-400 text-xs">Your space, your style.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="absolute bottom-6 right-6 z-10 hidden lg:flex items-center gap-2 border-b border-gold/60 pb-1.5 pr-8">
+<svg class="w-4 h-4 text-gold stroke-current fill-none" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>
+<span class="text-ivory text-sm italic">Tampa, FL</span>
 </div>
 </section>
-<!-- END: AboutHero -->
+<!-- END: LocationHero -->
 
-<!-- BEGIN: OurStory -->
-<section class="bg-[#150d07] px-4 lg:px-12 py-12 lg:py-16">
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.2fr_auto_0.7fr] gap-8 lg:gap-10 items-start">
-
-<div class="rounded overflow-hidden h-72 lg:h-80">
-<img alt="Craftsman working a wood slab at the bench" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/5710873/pexels-photo-5710873.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"/>
-</div>
+<!-- BEGIN: WhyCity -->
+<section class="bg-[#150d07] px-4 lg:px-12 py-12 lg:py-14">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10">
 
 <div>
-<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-3">Our story</p>
-<h2 class="font-headline font-semibold text-ivory text-2xl sm:text-3xl leading-tight mb-5">
-        From a Small Shop<br/>to a Growing Dream
+<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-3">Why Tampa?</p>
+<h2 class="font-headline font-bold text-ivory uppercase text-2xl sm:text-3xl leading-tight mb-5">
+        Local knowledge.<br/>Better results.
       </h2>
-<p class="text-stone-400 text-sm leading-relaxed mb-4">
-        Butcher Block Group started in Brandon, Florida with a simple idea: bring high-quality, custom woodwork back to homes and businesses in our community. What began as a one-man shop building butcher blocks for local restaurants quickly grew into a full-service woodworking company, specializing in countertops, tables, and custom projects.
+<p class="text-stone-400 text-sm leading-relaxed mb-8 max-w-md">
+        Tampa's coastal humidity is hard on wood, and that changes how a countertop has to be built. We seal and finish every piece for Florida conditions, and we've worked across the Tampa Bay area, from waterfront condos to family homes, delivering surfaces that hold up year-round.
       </p>
-<p class="text-stone-400 text-sm leading-relaxed mb-6">
-        Today, we're proud to serve Brandon and the greater Tampa Bay area, combining traditional craftsmanship with modern techniques to create pieces that are as functional as they are beautiful.
-      </p>
-<a class="inline-flex items-center gap-3 border border-stone-600 hover:border-gold text-ivory hover:text-gold font-headline font-semibold text-xs uppercase tracking-wider px-6 py-3.5 rounded transition" href="services.html">
-        Our services
-        <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</a>
-</div>
 
-<div aria-hidden="true" class="hidden lg:block w-px self-stretch bg-foundry"></div>
-
-<div class="space-y-7">
-<div class="flex items-start gap-3.5">
-<svg class="w-8 h-8 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M5 19l6-6M19 19l-6-6M5 5l14 14M19 5L5 19" stroke-linecap="round"></path></svg>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-4">
+<div class="flex items-start gap-3">
+<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><rect height="16" rx="1" width="6" x="4" y="5"></rect><rect height="11" rx="1" width="7" x="13" y="10"></rect><path d="M6.5 8h1M6.5 11h1M6.5 14h1M15.5 13h2M15.5 16h2" stroke-linecap="round"></path></svg>
 <div>
-<h3 class="font-headline text-gold text-[11px] font-semibold uppercase tracking-wider mb-1">Handcrafted</h3>
-<p class="text-stone-400 text-xs leading-relaxed">Built by skilled craftspeople, not machines.</p>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Downtown</p>
+<p class="text-stone-500 text-xs">Tampa</p>
 </div>
 </div>
-<div class="flex items-start gap-3.5">
-<svg class="w-8 h-8 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M12 3a5 5 0 00-4.9 4A4 4 0 006 13.9V14h12v-.1A4 4 0 0016.9 7 5 5 0 0012 3z" stroke-linejoin="round"></path><path d="M12 14v7" stroke-linecap="round"></path></svg>
+<div class="flex items-start gap-3">
+<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M4 11l8-6.5 8 6.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 10v9h12v-9" stroke-linejoin="round"></path><rect height="5" width="4" x="10" y="14"></rect></svg>
 <div>
-<h3 class="font-headline text-gold text-[11px] font-semibold uppercase tracking-wider mb-1">Premium materials</h3>
-<p class="text-stone-400 text-xs leading-relaxed">We source the best woods and materials.</p>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Hyde Park</p>
+<p class="text-stone-500 text-xs">Historic District</p>
 </div>
 </div>
-<div class="flex items-start gap-3.5">
-<svg class="w-8 h-8 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z" stroke-linejoin="round"></path><path d="M9.3 12.2l1.8 1.8 3.6-3.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div class="flex items-start gap-3">
+<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M12 21V11" stroke-linecap="round"></path><path d="M12 11c-3-3-6-2-7.5 0 2-4 6-5 7.5-2 1.5-3 5.5-2 7.5 2-1.5-2-4.5-3-7.5 0z" stroke-linejoin="round"></path></svg>
 <div>
-<h3 class="font-headline text-gold text-[11px] font-semibold uppercase tracking-wider mb-1">Local &amp; trusted</h3>
-<p class="text-stone-400 text-xs leading-relaxed">Proudly serving Brandon and nearby communities.</p>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">South Tampa</p>
+<p class="text-stone-500 text-xs">MacDill AFB area</p>
 </div>
 </div>
-</div>
-
-</div>
-</section>
-<!-- END: OurStory -->
-
-<!-- BEGIN: OurRoots -->
-<section class="relative px-4 lg:px-12 py-12 lg:py-16 overflow-hidden">
-<img alt="Tampa Bay skyline at sunset" class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/29330882/pexels-photo-29330882.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"/>
-<div class="absolute inset-0 bg-espresso/90"></div>
-
-<div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1fr_0.85fr] gap-8 lg:gap-10 items-center">
-
+<div class="flex items-start gap-3">
+<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><rect height="11" rx="2" width="17" x="3.5" y="8"></rect><path d="M9 8V6a2 2 0 012-2h2a2 2 0 012 2v2" stroke-linejoin="round"></path></svg>
 <div>
-<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-3">Our roots</p>
-<h2 class="font-headline font-semibold text-ivory text-2xl sm:text-3xl mb-5">Brandon, FL</h2>
-<p class="text-stone-400 text-sm leading-relaxed mb-7">
-        We're based in Brandon, and it's more than just our business location — it's our home. Our deep roots in <span class="text-gold">Brandon</span> and the surrounding <span class="text-gold">Tampa Bay</span> area drive us to deliver high-quality work to the local community, from <span class="text-gold">Valrico</span> and <span class="text-gold">Riverview</span> to <span class="text-gold">Tampa</span>, <span class="text-gold">St. Petersburg</span>, and beyond.
-      </p>
-<a class="inline-flex items-center gap-3 border border-stone-600 hover:border-gold text-ivory hover:text-gold font-headline font-semibold text-xs uppercase tracking-wider px-6 py-3.5 rounded transition" href="contact.html">
-        View service areas
-        <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</a>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Westshore</p>
+<p class="text-stone-500 text-xs">Business District</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M12 3a5 5 0 00-4.9 4A4 4 0 006 13.9V14h12v-.1A4 4 0 0016.9 7 5 5 0 0012 3z" stroke-linejoin="round"></path><path d="M12 14v7" stroke-linecap="round"></path></svg>
+<div>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Carrollwood</p>
+<p class="text-stone-500 text-xs">N. Tampa</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke-linecap="round"></path></svg>
+<div>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Beaches</p>
+<p class="text-stone-500 text-xs">St. Pete &amp; Clearwater</p>
+</div>
+</div>
+</div>
 </div>
 
-<!-- Service-radius graphic (designed stand-in, not a geographic map — see note) -->
-<div class="relative aspect-[4/3] rounded-lg border border-foundry bg-[#120b05]/80 overflow-hidden flex items-center justify-center">
+<!-- Service area panel -->
+<div class="rounded-lg border border-foundry bg-[#120b05] p-6">
+<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-1.5">Our service area</p>
+<p class="text-stone-400 text-xs mb-5">Proudly serving all of Tampa and surrounding areas.</p>
+
+<div class="grid grid-cols-1 sm:grid-cols-[1.15fr_0.85fr] gap-5">
+<!-- Locator graphic (designed stand-in — not a geographic map) -->
+<div class="relative aspect-square rounded border border-foundry bg-[#0e0804] overflow-hidden flex items-center justify-center">
 <svg class="absolute inset-0 w-full h-full opacity-20" aria-hidden="true">
 <defs>
-<pattern height="30" id="rgrid" patternUnits="userSpaceOnUse" width="30">
-<path d="M30 0H0v30" fill="none" stroke="#a8752e" stroke-width="0.7"></path>
+<pattern height="26" id="lgrid" patternUnits="userSpaceOnUse" width="26">
+<path d="M26 0H0v26" fill="none" stroke="#a8752e" stroke-width="0.7"></path>
 </pattern>
 </defs>
-<rect fill="url(#rgrid)" height="100%" width="100%"></rect>
+<rect fill="url(#lgrid)" height="100%" width="100%"></rect>
 </svg>
-<svg class="relative w-52 h-52" viewbox="0 0 200 200" aria-hidden="true">
-<circle class="ring" cx="100" cy="100" fill="none" r="68" stroke="#a8752e" stroke-width="1.4"></circle>
-<circle class="ring" cx="100" cy="100" fill="none" r="68" stroke="#a8752e" stroke-width="1.4"></circle>
-<circle class="ring" cx="100" cy="100" fill="none" r="68" stroke="#a8752e" stroke-width="1.4"></circle>
-<circle cx="100" cy="100" fill="none" r="42" stroke="#a8752e" stroke-opacity=".28" stroke-width="1"></circle>
-<circle cx="100" cy="100" fill="none" r="64" stroke="#a8752e" stroke-opacity=".18" stroke-width="1"></circle>
+<svg class="relative w-40 h-40" viewbox="0 0 200 200" aria-hidden="true">
+<circle class="ring" cx="100" cy="100" fill="none" r="66" stroke="#a8752e" stroke-width="1.4"></circle>
+<circle class="ring" cx="100" cy="100" fill="none" r="66" stroke="#a8752e" stroke-width="1.4"></circle>
+<circle class="ring" cx="100" cy="100" fill="none" r="66" stroke="#a8752e" stroke-width="1.4"></circle>
+<circle cx="100" cy="100" fill="none" r="40" stroke="#a8752e" stroke-opacity=".28" stroke-width="1"></circle>
+<circle cx="100" cy="100" fill="none" r="62" stroke="#a8752e" stroke-opacity=".18" stroke-width="1"></circle>
 <path d="M100 86a10 10 0 00-10 10c0 7.5 10 17 10 17s10-9.5 10-17a10 10 0 00-10-10z" fill="#a8752e"></path>
 <circle cx="100" cy="95.5" fill="#f4e7d3" r="3.4"></circle>
 </svg>
-<p class="absolute bottom-6 left-0 right-0 text-center font-headline text-ivory text-sm tracking-[0.15em] uppercase">Brandon</p>
+<p class="absolute bottom-4 left-0 right-0 text-center font-headline text-ivory text-sm tracking-[0.12em] uppercase">Tampa</p>
 </div>
 
 <div>
-<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-1">Proudly serving</p>
-<span class="block h-px w-20 bg-gold/50 mb-5"></span>
-<div class="grid grid-cols-2 gap-x-6 gap-y-3.5">
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Brandon</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Tampa</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Valrico</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Riverview</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Seffner</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Lithia</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Plant City</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Apollo Beach</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>St. Petersburg</span>
-<span class="flex items-center gap-2 text-stone-300 text-sm"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Clearwater</span>
+<p class="font-headline text-gold text-[10px] font-semibold uppercase tracking-wider mb-3">Major roads &amp; landmarks</p>
+<ul class="space-y-2.5">
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><path d="M8 21L10 3M16 21L14 3M12 7v2M12 12v2M12 17v2" stroke-linecap="round"></path></svg>I-275</li>
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><path d="M8 21L10 3M16 21L14 3M12 7v2M12 12v2M12 17v2" stroke-linecap="round"></path></svg>I-75</li>
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><path d="M8 21L10 3M16 21L14 3M12 7v2M12 12v2M12 17v2" stroke-linecap="round"></path></svg>Brandon Blvd (SR-60)</li>
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><path d="M8 21L10 3M16 21L14 3M12 7v2M12 12v2M12 17v2" stroke-linecap="round"></path></svg>Kennedy Blvd</li>
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8" stroke-linecap="round"></path></svg>Westshore Blvd</li>
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><path d="M21 15l-8-3V6a1.5 1.5 0 00-3 0v6l-8 3v2l8-2v3l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-3l8 2v-2z" stroke-linejoin="round"></path></svg>Tampa International Airport (TPA)</li>
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><path d="M4 12a8 4 0 0116 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6z" stroke-linejoin="round"></path><path d="M4 14h16" stroke-linecap="round"></path></svg>Amalie Arena</li>
+<li class="flex items-center gap-2.5 text-stone-300 text-xs"><svg class="w-4 h-4 text-gold stroke-current fill-none shrink-0" stroke-width="1.5" viewbox="0 0 24 24"><ellipse cx="12" cy="13" rx="9" ry="6"></ellipse><path d="M6 10.5h12M6 15.5h12" stroke-linecap="round"></path></svg>Raymond James Stadium</li>
+</ul>
 </div>
-<p class="text-stone-500 text-xs mt-4 pl-6">and surrounding areas</p>
+</div>
 </div>
 
 </div>
 </section>
-<!-- END: OurRoots -->
+<!-- END: WhyCity -->
 
-<!-- BEGIN: WhatWeDo -->
-<section class="bg-[#150d07] px-4 lg:px-12 py-12 lg:py-16">
+<!-- BEGIN: RecentProjects -->
+<section class="bg-[#150d07] px-4 lg:px-12 pb-12 lg:pb-16">
 <div class="max-w-7xl mx-auto">
-
-<div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr_auto] gap-8 items-center mb-8">
+<div class="flex flex-wrap items-end justify-between gap-4 mb-6">
 <div>
-<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-3">What we do</p>
-<h2 class="font-headline font-semibold text-ivory text-2xl sm:text-3xl leading-tight">
-          Quality Craftsmanship.<br/>Every Project.
-        </h2>
+<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-2">Recent projects in Tampa</p>
+<h2 class="font-headline font-bold text-ivory uppercase text-2xl sm:text-3xl mb-2">Real homes. Real results.</h2>
+<p class="text-stone-400 text-sm">See some of our latest countertop projects in the Tampa area.</p>
 </div>
-<p class="text-stone-400 text-sm leading-relaxed">
-        From stunning kitchen countertops to custom dining tables, we create woodwork that fits your space and your style. Explore our gallery to see examples of our work, or check out our services to learn more about what we offer.
-      </p>
-<a class="inline-flex items-center justify-center gap-3 border border-stone-600 hover:border-gold text-ivory hover:text-gold font-headline font-semibold text-xs uppercase tracking-wider px-6 py-3.5 rounded transition shrink-0" href="gallery.html">
-        View gallery
+<a class="inline-flex items-center gap-2 font-headline text-gold hover:text-gold-light text-xs uppercase tracking-wider border-b border-gold/50 pb-1 transition" href="../../gallery.html">
+        View all projects
         <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 </a>
 </div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-<a class="cat-card" href="services/countertops.html">
-<img alt="Wood countertops" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/8583696/pexels-photo-8583696.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
-<div class="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent"></div>
-<span class="absolute bottom-4 left-4 right-4 flex items-center justify-between font-headline text-ivory text-sm font-semibold uppercase tracking-wide">
-          Countertops
-          <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</span>
+<a class="proj-card" href="../../gallery.html">
+<div class="h-40 overflow-hidden">
+<img alt="Walnut butcher block island in South Tampa" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/8583696/pexels-photo-8583696.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+</div>
+<div class="p-4 space-y-2">
+<p class="flex items-center gap-2 text-stone-300 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>South Tampa</p>
+<p class="flex items-center gap-2 text-stone-400 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17M3.5 12h17" stroke-linecap="round"></path></svg>Walnut &ndash; End Grain</p>
+</div>
 </a>
-<a class="cat-card" href="services/tabletops.html">
-<img alt="Custom wood tabletops" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/12184654/pexels-photo-12184654.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
-<div class="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent"></div>
-<span class="absolute bottom-4 left-4 right-4 flex items-center justify-between font-headline text-ivory text-sm font-semibold uppercase tracking-wide">
-          Tabletops
-          <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</span>
+
+<a class="proj-card" href="../../gallery.html">
+<div class="h-40 overflow-hidden">
+<img alt="Acacia butcher block island in Hyde Park" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/7601072/pexels-photo-7601072.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+</div>
+<div class="p-4 space-y-2">
+<p class="flex items-center gap-2 text-stone-300 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Hyde Park</p>
+<p class="flex items-center gap-2 text-stone-400 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17M3.5 12h17" stroke-linecap="round"></path></svg>Acacia &ndash; Edge Grain</p>
+</div>
 </a>
-<a class="cat-card" href="services/sinks-drainboards.html">
-<img alt="Wood sink surrounds and drainboards" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/8286631/pexels-photo-8286631.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
-<div class="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent"></div>
-<span class="absolute bottom-4 left-4 right-4 flex items-center justify-between font-headline text-ivory text-sm font-semibold uppercase tracking-wide">
-          Kitchen sinks
-          <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</span>
+
+<a class="proj-card" href="../../gallery.html">
+<div class="h-40 overflow-hidden">
+<img alt="Maple countertop with integrated sink in Westshore" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/8286631/pexels-photo-8286631.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+</div>
+<div class="p-4 space-y-2">
+<p class="flex items-center gap-2 text-stone-300 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Westshore</p>
+<p class="flex items-center gap-2 text-stone-400 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17M3.5 12h17" stroke-linecap="round"></path></svg>Hard Maple &ndash; Undermount</p>
+</div>
 </a>
-<a class="cat-card" href="services/custom-projects.html">
-<img alt="Custom woodwork projects" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/34583699/pexels-photo-34583699.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
-<div class="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent"></div>
-<span class="absolute bottom-4 left-4 right-4 flex items-center justify-between font-headline text-ivory text-sm font-semibold uppercase tracking-wide">
-          Custom work
-          <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</span>
+
+<a class="proj-card" href="../../gallery.html">
+<div class="h-40 overflow-hidden">
+<img alt="Hevea waterfall countertop in Carrollwood" class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/10117713/pexels-photo-10117713.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+</div>
+<div class="p-4 space-y-2">
+<p class="flex items-center gap-2 text-stone-300 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.3"></circle></svg>Carrollwood</p>
+<p class="flex items-center gap-2 text-stone-400 text-xs"><svg class="w-3.5 h-3.5 text-gold stroke-current fill-none shrink-0" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5v17M3.5 12h17" stroke-linecap="round"></path></svg>Hevea &ndash; Waterfall Edge</p>
+</div>
 </a>
 </div>
-
 </div>
 </section>
-<!-- END: WhatWeDo -->
+<!-- END: RecentProjects -->
 
-<!-- BEGIN: AboutCTA -->
-<section class="relative px-4 lg:px-12 py-14 lg:py-16 overflow-hidden">
-<img alt="Stacked hardwood in the workshop" class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/37162560/pexels-photo-37162560.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"/>
+<!-- BEGIN: LocationCTA -->
+<section class="relative px-4 lg:px-12 py-14 overflow-hidden">
+<img alt="Tampa skyline at sunset" class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/29330882/pexels-photo-29330882.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"/>
 <div class="absolute inset-0 bg-espresso/88"></div>
 
-<div class="relative z-10 max-w-4xl mx-auto text-center">
-<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-4">Let's connect</p>
-<h2 class="font-headline font-semibold text-ivory text-2xl sm:text-3xl lg:text-4xl mb-3">Ready to Build Your Project?</h2>
-<p class="text-stone-300 text-sm mb-8">Have questions? Want a custom quote? We'd love to hear from you.</p>
-
-<div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-<a class="inline-flex items-center justify-center gap-3 bg-gold-light hover:bg-gold-hover text-stone-900 font-headline font-bold text-sm uppercase tracking-wider px-8 py-4 rounded transition" href="contact.html">
+<div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_auto_0.9fr] gap-10 items-center">
+<div>
+<p class="font-headline text-gold text-[11px] tracking-[0.2em] uppercase mb-4">Ready to get started?</p>
+<h2 class="font-headline font-bold text-ivory uppercase text-3xl sm:text-4xl leading-[0.95] mb-4">
+        Let's build your<br/>Tampa project
+      </h2>
+<p class="text-stone-300 text-sm mb-8">Get a free quote or talk with our team about your countertop needs.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-flex items-center justify-center gap-3 bg-gold-light hover:bg-gold-hover text-stone-900 font-headline font-bold text-sm uppercase tracking-wider px-8 py-4 rounded transition" href="../../contact.html">
+<svg class="w-5 h-5 stroke-current fill-none" stroke-width="1.7" viewbox="0 0 24 24"><path d="M9 12h6m-6 4h4M7 3h7l5 5v11a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          Get a quote
+          <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+<a class="inline-flex items-center justify-center gap-3 border border-stone-500 hover:border-gold text-ivory hover:text-gold font-headline font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded transition" href="tel:8135550123">
 <svg class="w-5 h-5 stroke-current fill-none" stroke-width="1.7" viewbox="0 0 24 24"><path d="M6 3.5h3l1.4 4-2 1.6a12 12 0 005.5 5.5l1.6-2 4 1.4v3a1.5 1.5 0 01-1.6 1.5A16.5 16.5 0 014.5 5.1 1.5 1.5 0 016 3.5z" stroke-linejoin="round"></path></svg>
-          Contact us
-          <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</a>
-<a class="inline-flex items-center justify-center gap-3 border border-stone-500 hover:border-gold text-ivory hover:text-gold font-headline font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded transition" href="gallery.html">
-<svg class="w-5 h-5 stroke-current fill-none" stroke-width="1.7" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="8.5" cy="9.5" r="1.5"></circle><path d="M20 16l-5-5-8.5 8.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          View gallery
-          <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-</a>
+          Call now
+        </a>
+</div>
 </div>
 
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-0 max-w-3xl mx-auto">
-<div class="flex items-center gap-3 justify-center sm:border-r sm:border-foundry sm:px-4">
-<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.4" viewbox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z" stroke-linejoin="round"></path><path d="M9.3 12.2l1.8 1.8 3.6-3.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<div class="text-left">
-<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Free consultation</p>
-<p class="text-stone-400 text-xs">Discuss your vision.</p>
+<div aria-hidden="true" class="hidden lg:block w-px self-stretch bg-gold/30"></div>
+
+<div class="space-y-6">
+<div class="flex items-start gap-3.5">
+<svg class="w-8 h-8 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z" stroke-linejoin="round"></path><path d="M9.3 12.2l1.8 1.8 3.6-3.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider mb-0.5">Free consultation</p>
+<p class="text-stone-400 text-xs">Discuss your vision and needs.</p>
 </div>
 </div>
-<div class="flex items-center gap-3 justify-center sm:border-r sm:border-foundry sm:px-4">
-<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.4" viewbox="0 0 24 24"><rect height="16" rx="1" width="16" x="4" y="5"></rect><path d="M8 2v4M16 2v4M8 11h8M8 15h4" stroke-linecap="round"></path></svg>
-<div class="text-left">
-<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Accurate quote</p>
-<p class="text-stone-400 text-xs">Based on your measurements.</p>
+<div class="flex items-start gap-3.5">
+<svg class="w-8 h-8 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.2 2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider mb-0.5">Accurate quote</p>
+<p class="text-stone-400 text-xs">Based on your measurements &amp; material.</p>
 </div>
 </div>
-<div class="flex items-center gap-3 justify-center sm:px-4">
-<svg class="w-7 h-7 text-gold stroke-current fill-none shrink-0" stroke-width="1.4" viewbox="0 0 24 24"><path d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<div class="text-left">
-<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider">Professional installation</p>
-<p class="text-stone-400 text-xs">On time. On budget.</p>
+<div class="flex items-start gap-3.5">
+<svg class="w-8 h-8 text-gold stroke-current fill-none shrink-0" stroke-width="1.3" viewbox="0 0 24 24"><rect height="12" rx="2" width="17" x="3.5" y="7"></rect><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2" stroke-linejoin="round"></path><path d="M9.5 13l2 2 3.5-3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div>
+<p class="font-headline text-ivory text-[11px] font-semibold uppercase tracking-wider mb-0.5">Professional installation</p>
+<p class="text-stone-400 text-xs">On time. On budget. Done right.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- END: AboutCTA -->
+<!-- END: LocationCTA -->
 
 <!-- BEGIN: MainFooter -->
     <footer
@@ -676,25 +729,25 @@
           </h4>
           <ul class="space-y-2 text-stone-400">
             <li>
-              <a class="hover:text-gold transition" href="index.html#services"
+              <a class="hover:text-gold transition" href="../../index.html#services"
                 >Services</a
               >
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#gallery">Gallery</a>
+              <a class="hover:text-gold transition" href="../../index.html#gallery">Gallery</a>
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#pricing"
+              <a class="hover:text-gold transition" href="../../index.html#pricing"
                 >Pricing Calculator</a
               >
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#who-we-serve"
+              <a class="hover:text-gold transition" href="../../index.html#who-we-serve"
                 >About</a
               >
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#quote">Contact</a>
+              <a class="hover:text-gold transition" href="../../index.html#quote">Contact</a>
             </li>
           </ul>
         </div>
@@ -707,27 +760,27 @@
           </h4>
           <ul class="space-y-2 text-stone-400">
             <li>
-              <a class="hover:text-gold transition" href="index.html#services"
+              <a class="hover:text-gold transition" href="../../index.html#services"
                 >Butcher Blocks</a
               >
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#services"
+              <a class="hover:text-gold transition" href="../../index.html#services"
                 >Wood Countertops</a
               >
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#services"
+              <a class="hover:text-gold transition" href="../../index.html#services"
                 >Custom Tables</a
               >
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#services"
+              <a class="hover:text-gold transition" href="../../index.html#services"
                 >Shelving &amp; Built-Ins</a
               >
             </li>
             <li>
-              <a class="hover:text-gold transition" href="index.html#services"
+              <a class="hover:text-gold transition" href="../../index.html#services"
                 >Custom Architectural Projects</a
               >
             </li>
